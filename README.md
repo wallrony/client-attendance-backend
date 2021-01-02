@@ -2,7 +2,7 @@
 
 Autor: Wallisson Rony de M. N.
 
-Este é o backend...
+Este é um backend para a aplicação Client Attendances. Logo terá uma explicação sobre as entidades presentes, sobre o relacionamento entre entidades e tabelas de requisições disponíveis.
 
 ## Tarefas Pendentes
 
