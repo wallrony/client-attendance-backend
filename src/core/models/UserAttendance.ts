@@ -3,4 +3,5 @@ export default interface UserAttendance {
   attendance_id: number;
   user_id: number;
   date: string;
+  services: number[];
 }

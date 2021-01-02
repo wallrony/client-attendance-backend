@@ -5,6 +5,7 @@ export async function up(knex: Knex) {
     table.increments('id').primary();
     table.integer('doctor_id').notNullable();
     table.integer('client_attendance_id').notNullable();
+    table.decimal('value').notNullable();
 
     table.foreign('doctor_id').references('id').inTable('doctors');
     table.foreign('client_attendance_id').references('id').inTable('users');

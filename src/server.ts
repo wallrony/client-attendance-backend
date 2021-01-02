@@ -6,4 +6,6 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
+// Set routers and middlewares
+
 export default server;
