@@ -1,0 +1,26 @@
+import UserAttendance from "../../core/models/UserAttendance";
+import IDAO from "./IDAO";
+
+class IUserAttendanceDAO extends IDAO {
+  constructor() {
+    super('user-attendance', 'user_attendances');
+  }
+
+  index(attendanceID: number): Promise<UserAttendance[]> {
+    throw('You have to implement this method.');
+  }
+
+  add(service: UserAttendance): Promise<UserAttendance> {
+    throw('You have to implement this method.');
+  }
+
+  update(data: UserAttendance): Promise<UserAttendance> {
+    throw('You have to implement this method.');
+  }
+
+  delete(id: number): Promise<boolean> {
+    throw('You have to implement this method.');
+  }
+}
+
+export default IUserAttendanceDAO;
