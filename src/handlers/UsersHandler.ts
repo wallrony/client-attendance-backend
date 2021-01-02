@@ -5,7 +5,7 @@ import User from "../core/models/User";
 import UserService from "../services/UserService";
 import { makeResponse } from "../core/utils/ResponseUtils";
 
-class UserHandler extends Handler<UserService, User> {
+class UsersHandler extends Handler<UserService, User> {
   constructor() {
     super(
       'user',
@@ -68,4 +68,4 @@ class UserHandler extends Handler<UserService, User> {
   }
 }
 
-export default UserHandler;
+export default UsersHandler;

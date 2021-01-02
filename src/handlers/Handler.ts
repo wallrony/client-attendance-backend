@@ -30,7 +30,7 @@ abstract class Handler<S extends Service, T extends Model> {
    * procede de forma genérica utilizada por todos os request
    * handlers.
    */
-  async execService(response: Response, func: Function, ...args: any[]): Promise<Response> {
+  protected async execService(response: Response, func: Function, ...args: any[]): Promise<Response> {
     const result: ServiceResponse<T> = await func(...args);
 
     if(result.err) {
@@ -44,7 +44,7 @@ abstract class Handler<S extends Service, T extends Model> {
    * Verifica os campos obrigatórios (mandatoryFields) e
    * retorna uma lista de strings com todos os campos faltantes.
    */
-  verifyFields(body: Record<string, any>): string[] {
+  protected verifyFields(body: Record<string, any>): string[] {
     const emptyFields: string[] = [];
 
     for (const field of this.mandatoryFields) {

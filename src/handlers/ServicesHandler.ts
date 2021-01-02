@@ -5,7 +5,7 @@ import Service from "../core/models/Service";
 import ServicesService from "../services/ServicesService";
 import { makeResponse } from '../core/utils/ResponseUtils';
 
-class ServiceHandler extends Handler<ServicesService, Service> {
+class ServicesHandler extends Handler<ServicesService, Service> {
   constructor() {
     super(
       'service',
@@ -51,7 +51,20 @@ class ServiceHandler extends Handler<ServicesService, Service> {
       return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
     }
 
-    const data: Service = this.improver.createT({ ...request.body });
+    const { attendance_id } = request.params;
+
+    if(!attendance_id.length) {
+      return makeResponse(response, '', `need ${this.entityName} id param`);
+    }
+
+    try { Number(attendance_id) } catch {
+      return makeResponse(response, '', `wrong ${this.entityName}_id param type`);
+    }
+
+    const data: Service = this.improver.createT({
+      attendance_id: Number(attendance_id),
+      ...request.body
+    });
 
     return await this.execService(
       response,
@@ -114,4 +127,4 @@ class ServiceHandler extends Handler<ServicesService, Service> {
   }
 }
 
-export default ServiceHandler;
+export default ServicesHandler;

@@ -10,7 +10,7 @@ class CommissionsHandler extends Handler<CommissionsService, Commission> {
     super(
       'commission',
       new CommissionsService(),
-      ['doctor_id', 'client_attendance_id', 'value']
+      ['client_attendance_id', 'value']
     );
   }
 
@@ -33,23 +33,34 @@ class CommissionsHandler extends Handler<CommissionsService, Commission> {
   }
 
   async add(request: Request, response: Response): Promise<Response> {
-    const { doctor_id, client_attendance_id, value } = request.body;
+    if(!request.body.length) {
+      return makeResponse(response, 'no-data', 'need body data');
+    }
 
-    if(!doctor_id.length || !client_attendance_id.length) {
+    const emptyFields = this.verifyFields(request.body);
+
+    if(emptyFields.length === this.mFieldsLenght) {
+      return makeResponse(response, 'no-data', 'need data in request body');
+    } else if(emptyFields.length) {
+      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
+    }
+
+    const { doctor_id } = request.params;
+
+    if(!doctor_id.length) {
       return makeResponse(response, '', `need ${this.entityName} id param`);
     }
 
     try {
       Number(doctor_id);
-      Number(client_attendance_id);
+      Number(request.body['client_attendance_id']);
     } catch {
       return makeResponse(response, '', 'wrong attendance_id param type');
     }
 
     const data = this.improver.createT({
       doctor_id: Number(doctor_id),
-      client_attendance_id: Number(client_attendance_id),
-      value
+      ...request.body,
     });
 
     return await this.execService(

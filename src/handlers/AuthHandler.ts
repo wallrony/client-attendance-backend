@@ -6,7 +6,7 @@ import Handler from './Handler';
 import { makeResponse } from '../core/utils/ResponseUtils';
 import AuthCredentials from '../core/models/AuthCredentials';
 
-class UsersHandler extends Handler<AuthService, User> {
+class AuthHandler extends Handler<AuthService, User> {
   constructor() {
     super(
       'user',
@@ -65,4 +65,4 @@ class UsersHandler extends Handler<AuthService, User> {
   }
 }
 
-export default UsersHandler;
+export default AuthHandler;
