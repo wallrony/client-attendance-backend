@@ -1,4 +1,6 @@
-export default interface User {
+import Model from "./Model";
+
+export default interface User extends Model {
   id?: number;
   name: string;
   birthday: string;

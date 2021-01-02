@@ -1,3 +1,4 @@
+import AuthCredentials from "../../core/models/AuthCredentials";
 import User from "../../core/models/User";
 import IDAO from "./IDAO";
 
@@ -6,7 +7,7 @@ class IAuthDAO extends IDAO {
     super('user', 'users');
   }
 
-  login(email: string, password: string): Promise<User> {
+  login(credentials: AuthCredentials): Promise<User> {
     throw('You have to implement this method.');
   }
 

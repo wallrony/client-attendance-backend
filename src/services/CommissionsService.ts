@@ -1,8 +1,13 @@
 import Commission from "../core/models/Commission";
 import ServiceResponse from "../core/models/ServiceResponse";
 import FacadeInstance from "../data/Facade";
+import Service from "./Service";
 
-class CommissionsService {
+/**
+ * @method index(doctorId)
+ * @method add(data)
+ */
+class CommissionsService extends Service {
   async index(doctorId: number): Promise<ServiceResponse<Commission[]>> {
     const result: ServiceResponse<Commission[]> = {};
 

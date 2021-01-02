@@ -1,14 +1,19 @@
-import Doctor from "../core/models/Doctor";
+import AuthCredentials from "../core/models/AuthCredentials";
 import ServiceResponse from "../core/models/ServiceResponse";
 import User from "../core/models/User";
 import FacadeInstance from "../data/Facade";
+import Service from "./Service";
 
-class AuthService {
-  async login(email: string, password: string): Promise<ServiceResponse<User>> {
+/**
+ * @method login(credentials)
+ * @method register(data)
+ */
+class AuthService extends Service {
+  async login(credentials: AuthCredentials): Promise<ServiceResponse<User>> {
     const result: ServiceResponse<User> = {};
 
     try {
-      result.data = await FacadeInstance().login(email, password);
+      result.data = await FacadeInstance().login(credentials);
     } catch (e) {
       result.err = e;
     }

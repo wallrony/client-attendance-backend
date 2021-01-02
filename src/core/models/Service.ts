@@ -1,4 +1,6 @@
-export default interface Service {
+import Model from "./Model";
+
+export default interface Service extends Model {
   id?: number;
   attendance_id: number;
   name: string;

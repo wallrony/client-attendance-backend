@@ -1,4 +1,5 @@
 import Service from "../../core/models/Service";
+import { createError } from "../../core/utils/GeneralUtils";
 import IServicesDAO from "../dao_interfaces/IServicesDAO";
 import connection from "../database/Connection";
 
@@ -9,7 +10,7 @@ class ServicesDAO extends IServicesDAO {
       .where('attendance_id', '=', String(attendanceID))
 
     if(!rows.length) {
-      throw('not-found');
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return rows;
@@ -21,7 +22,7 @@ class ServicesDAO extends IServicesDAO {
       .returning<Service>('*');
 
     if(!row) {
-      throw(`error-inserting-${this.entityName}`);
+      throw createError('internal-error', `error-inserting-${this.entityName}`);
     }
 
     return row;
@@ -34,7 +35,7 @@ class ServicesDAO extends IServicesDAO {
       .returning<Service>('*');
 
     if(!row) {
-      throw('not-found');
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return row;
@@ -46,7 +47,7 @@ class ServicesDAO extends IServicesDAO {
       .where('id', '=', String(id))
 
     if(!row) {
-      throw(`error-deleting-${this.entityName}`);
+      throw createError('internal-error', `error-deleting-${this.entityName}`);
     }
 
     return true;

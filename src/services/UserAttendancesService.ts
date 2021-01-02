@@ -1,8 +1,15 @@
 import ServiceResponse from "../core/models/ServiceResponse";
 import UserAttendance from "../core/models/UserAttendance";
 import FacadeInstance from "../data/Facade";
+import Service from "./Service";
 
-class UserAttendancesService {
+/**
+ * @method index(userID)
+ * @method add(data, services)
+ * @method update(data)
+ * @method delete(id)
+ */
+class UserAttendancesService extends Service {
   async index(userID: number): Promise<ServiceResponse<UserAttendance[]>> {
     const result: ServiceResponse<UserAttendance[]> = {};
 
@@ -15,11 +22,11 @@ class UserAttendancesService {
     return result;
   }
 
-  async add(data: UserAttendance): Promise<ServiceResponse<UserAttendance>> {
+  async add(data: UserAttendance, services: number[]): Promise<ServiceResponse<UserAttendance>> {
     const result: ServiceResponse<UserAttendance> = {};
 
     try {
-      result.data = await FacadeInstance().addUserAttendance(data)
+      result.data = await FacadeInstance().addUserAttendance(data, services);
     } catch(e) {
       result.err = e;
     }

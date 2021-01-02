@@ -1,4 +1,5 @@
 import Attendance from "../core/models/Attendance";
+import AuthCredentials from "../core/models/AuthCredentials";
 import Commission from "../core/models/Commission";
 import Doctor from "../core/models/Doctor";
 import Service from "../core/models/Service";
@@ -47,6 +48,10 @@ class Facade {
     return await this.attendancesDAO.index();
   }
 
+  async addAttendance(data: Attendance): Promise<Attendance> {
+    return await this.attendancesDAO.add(data);
+  }
+
   async updateAttendance(data: Attendance): Promise<Attendance> {
     return await this.attendancesDAO.update(data);
   }
@@ -56,12 +61,12 @@ class Facade {
   }
 
   // AuthDAO Methods
-  async login(email: string, password: string): Promise<User> {
-    return await this.authDAO.login(email, password);
+  async login(credentials: AuthCredentials): Promise<User> {
+    return await this.authDAO.login(credentials);
   }
 
-  async doctorLogin(email: string, password: string): Promise<Doctor> {
-    return await this.doctorAuthDAO.doctorLogin(email, password);
+  async doctorLogin(credentials: AuthCredentials): Promise<Doctor> {
+    return await this.doctorAuthDAO.doctorLogin(credentials);
   }
 
   async register(data: User): Promise<boolean> {
@@ -112,8 +117,8 @@ class Facade {
     return await this.userAttendancesDAO.index(attendanceID);
   }
 
-  async addUserAttendance(data: UserAttendance): Promise<UserAttendance> {
-    return await this.userAttendancesDAO.add(data);
+  async addUserAttendance(data: UserAttendance, services: number[]): Promise<UserAttendance> {
+    return await this.userAttendancesDAO.add(data, services);
   }
 
   async updateUserAttendance(data: UserAttendance): Promise<UserAttendance> {

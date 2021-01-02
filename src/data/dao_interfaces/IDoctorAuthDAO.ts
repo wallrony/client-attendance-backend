@@ -6,7 +6,7 @@ abstract class IDoctorAuthDAO extends IDAO {
     super('doctor', 'doctors');
   }
 
-  doctorLogin(email: string, password: string): Promise<Doctor> {
+  doctorLogin(credentials): Promise<Doctor> {
     throw('You have to implement this method.');
   }
 

@@ -10,7 +10,7 @@ class IUserAttendanceDAO extends IDAO {
     throw('You have to implement this method.');
   }
 
-  add(service: UserAttendance): Promise<UserAttendance> {
+  add(service: UserAttendance, services: number[]): Promise<UserAttendance> {
     throw('You have to implement this method.');
   }
 

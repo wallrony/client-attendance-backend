@@ -1,19 +1,21 @@
+import AuthCredentials from "../../core/models/AuthCredentials";
 import Doctor from "../../core/models/Doctor";
 import User from "../../core/models/User";
+import { createError } from "../../core/utils/GeneralUtils";
 import IDoctorAuthDAO from "../dao_interfaces/IDoctorAuthDAO";
 import connection from "../database/Connection";
 
 class DoctorAuthDAO extends IDoctorAuthDAO {
-  async doctorLogin(email: string, password: string): Promise<Doctor> {
+  async doctorLogin(credentials: AuthCredentials): Promise<Doctor> {
     const row = await connection<Doctor>('users')
       .select('*')
       .join('doctors', 'doctors.user_id', '=', 'users.id')
-      .where('email', '=', email)
-      .andWhere('password', '=', password)
+      .where('email', '=', credentials.email)
+      .andWhere('password', '=', credentials.password)
       .first();
 
     if(!row) {
-      throw("not-found");
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return row;
@@ -40,13 +42,13 @@ class DoctorAuthDAO extends IDoctorAuthDAO {
         const finalRow = await trx.commit();
 
         if (!finalRow) {
-          throw('error-commiting-transaction');
+          throw createError('internal-error', `error-commiting-transaction-${this.entityName}`);
         }
       } else {
-        throw(`error-inserting-${this.entityName}`);
+        throw createError('internal-error', `error-inserting-${this.entityName}`);
       }
     } else {
-      throw("error-inserting-user");
+      throw createError('internal-error', 'error-inserting-user');
     }
 
     return true;

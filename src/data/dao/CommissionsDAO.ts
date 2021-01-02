@@ -1,4 +1,5 @@
 import Commission from "../../core/models/Commission";
+import { createError } from "../../core/utils/GeneralUtils";
 import ICommissionsDAO from "../dao_interfaces/ICommissionsDAO";
 import connection from "../database/Connection";
 
@@ -9,7 +10,7 @@ class CommissionsDAO extends ICommissionsDAO {
       .where('doctor_id', '=', String(doctorId))
 
     if(!rows.length) {
-      throw('not-found');
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return rows;
@@ -21,7 +22,7 @@ class CommissionsDAO extends ICommissionsDAO {
       .returning<Commission>('*');
 
     if(!row) {
-      throw(`error-inserting-${this.entityName}`);
+      throw createError('internal-error', `error-inserting-${this.entityName}`);
     }
 
     return row;

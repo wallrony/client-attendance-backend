@@ -10,6 +10,10 @@ class IAttendancesDAO extends IDAO {
     throw('You have to implement this method.');
   }
   
+  add(data: Attendance): Promise<Attendance> {
+    throw('You have to implement this method.');
+  }
+
   update(data: Attendance): Promise<Attendance> {
     throw('You have to implement this method.');
   }

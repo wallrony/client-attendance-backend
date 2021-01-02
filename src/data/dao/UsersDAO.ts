@@ -1,4 +1,5 @@
 import User from "../../core/models/User";
+import { createError } from "../../core/utils/GeneralUtils";
 import IUsersDAO from "../dao_interfaces/IUserDAO";
 import connection from "../database/Connection";
 
@@ -10,7 +11,7 @@ class UsersDAO extends IUsersDAO {
       .first();
 
     if(!row) {
-      throw('not-found');
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return row;
@@ -23,7 +24,7 @@ class UsersDAO extends IUsersDAO {
       .returning('*');
 
     if(!row) {
-      throw('not-found');
+      throw createError('not-found', `${this.entityName} not found`);
     }
 
     return row[0];

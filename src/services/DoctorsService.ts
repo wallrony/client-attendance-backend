@@ -1,8 +1,13 @@
 import Doctor from "../core/models/Doctor";
 import ServiceResponse from "../core/models/ServiceResponse";
 import FacadeInstance from "../data/Facade";
+import Service from "./Service";
 
-class DoctorsService {
+/**
+ * @method show(id)
+ * @method update(data)
+ */
+class DoctorsService extends Service {
   async show(id: number): Promise<ServiceResponse<Doctor>> {
     const result: ServiceResponse<Doctor> = {};
 

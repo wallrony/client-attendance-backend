@@ -1,10 +1,17 @@
-import Service from "../core/models/Service";
+import ServiceModel from "../core/models/Service";
 import ServiceResponse from "../core/models/ServiceResponse";
 import FacadeInstance from "../data/Facade";
+import Service from "./Service";
 
-class ServicesService {
-  async index(attendanceID: number): Promise<ServiceResponse<Service[]>> {
-    const result: ServiceResponse<Service[]> = {};
+/**
+ * @method index(attendanceID)
+ * @method add(data)
+ * @method update(data)
+ * @method delete(id)
+ */
+class ServicesService extends Service {
+  async index(attendanceID: number): Promise<ServiceResponse<ServiceModel[]>> {
+    const result: ServiceResponse<ServiceModel[]> = {};
 
     try {
       result.data = await FacadeInstance().indexServices(attendanceID);
@@ -15,8 +22,8 @@ class ServicesService {
     return result;
   }
 
-  async add(data: Service): Promise<ServiceResponse<Service>> {
-    const result: ServiceResponse<Service> = {};
+  async add(data: ServiceModel): Promise<ServiceResponse<ServiceModel>> {
+    const result: ServiceResponse<ServiceModel> = {};
 
     try {
       result.data = await FacadeInstance().addService(data);
@@ -27,8 +34,8 @@ class ServicesService {
     return result;
   }
   
-  async update(data: Service): Promise<ServiceResponse<Service>> {
-    const result: ServiceResponse<Service> = {};
+  async update(data: ServiceModel): Promise<ServiceResponse<ServiceModel>> {
+    const result: ServiceResponse<ServiceModel> = {};
 
     try {
       result.data = await FacadeInstance().updateService(data);
