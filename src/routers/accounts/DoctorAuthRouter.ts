@@ -4,13 +4,13 @@ import Router from "../Router";
 import DoctorAuthHandler from "../../handlers/DoctorAuthHandler";
 
 class DoctorAuthRouter extends Router<DoctorAuthHandler> {
-  constructor() {
-    super(new DoctorAuthHandler());
+  constructor(router: IRouter) {
+    super('DoctorAuthRouter', new DoctorAuthHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.post('/login-doctor', this.handler.login);
-    router.post('/register-doctor', this.handler.register);
+  setRoutes() {
+    this.setRouteWithLog('POST', '/login-doctor', this.handler.login);
+    this.setRouteWithLog('POST', '/register-doctor', this.handler.register);
   }
 }
 

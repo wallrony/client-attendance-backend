@@ -4,14 +4,13 @@ import Router from "../Router";
 import DoctorsHandler from "../../handlers/DoctorsHandler";
 
 class DoctorsRouter extends Router<DoctorsHandler> {
-  constructor() {
-    super(new DoctorsHandler());
+  constructor(router: IRouter) {
+    super('DoctorsRouter', new DoctorsHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.route('/doctors/:id')
-      .get(this.handler.show)
-      .put(this.handler.update);
+  setRoutes() {
+    this.setRouteWithLog('GET', '/doctors/:id', this.handler.show)
+    this.setRouteWithLog('PUT', '/doctors/:id', this.handler.update)
   }
 }
 

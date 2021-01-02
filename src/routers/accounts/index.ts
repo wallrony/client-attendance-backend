@@ -5,16 +5,22 @@ import DoctorAuthRouter from './DoctorAuthRouter';
 import DoctorsRouter from './DoctorsHandler';
 import UsersRouter from './UsersRouter';
 
-export function setHandlers(router: Router) {
-  const accountsRouter = router.use('/accounts');
-
-  const authRouter = new AuthRouter();
-  const doctorAuthRouter = new DoctorAuthRouter();
-  const usersRouter = new UsersRouter();
-  const doctorsRouter = new DoctorsRouter();
-
-  authRouter.setRoutes(accountsRouter);
-  doctorAuthRouter.setRoutes(accountsRouter);
-  usersRouter.setRoutes(accountsRouter);
-  doctorsRouter.setRoutes(accountsRouter);
+class AccountsRouter {
+  static setHandlers() {
+    const group = Router();
+  
+    const authRouter = new AuthRouter(group);
+    const doctorAuthRouter = new DoctorAuthRouter(group);
+    const usersRouter = new UsersRouter(group);
+    const doctorsRouter = new DoctorsRouter(group);
+  
+    authRouter.setRoutes();
+    doctorAuthRouter.setRoutes();
+    usersRouter.setRoutes();
+    doctorsRouter.setRoutes();
+  
+    return group;
+  }
 }
+
+export default AccountsRouter;

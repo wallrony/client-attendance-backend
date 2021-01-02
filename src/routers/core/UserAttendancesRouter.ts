@@ -3,18 +3,34 @@ import UserAttendancesHandler from "../../handlers/UserAttendancesHandler";
 import Router from "../Router";
 
 class UserAttendancesRouter extends Router<UserAttendancesHandler> {
-  constructor() {
-    super(new UserAttendancesHandler());
+  constructor(router: IRouter) {
+    super('UserAttendanceRouter', new UserAttendancesHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.route('/users/:user_id/attendances/:attendance_id/user_attendance')
-      .get(this.handler.index)
-      .post(this.handler.add);
+  setRoutes() {
+    this.setRouteWithLog(
+      'GET',
+      '/users/:user_id/attendances/:attendance_id/user_attendance',
+      this.handler.index,
+    );
 
-    router.route('/users/:user_id/attendances/:attendance_id/user_attendance/:id')
-      .put(this.handler.update)
-      .delete(this.handler.delete);
+    this.setRouteWithLog(
+      'POST',
+      '/users/:user_id/attendances/:attendance_id/user_attendance',
+      this.handler.add,
+    );
+
+    this.setRouteWithLog(
+      'PUT',
+      '/users/:user_id/attendances/:attendance_id/user_attendance/:id',
+      this.handler.update,
+    );
+
+    this.setRouteWithLog(
+      'DELETE',
+      '/users/:user_id/attendances/:attendance_id/user_attendance/:id',
+      this.handler.delete,
+    );
   }
 }
 

@@ -5,16 +5,22 @@ import CommissionsRouter from './CommissionsRouter';
 import ServicesRouter from './ServicesRouter';
 import UserAttendancesRouter from './UserAttendancesRouter';
 
-export function setRoutes(router: Router) {
-  const coreRouter = router.use('/core');
-
-  const attendanceRouter = new AttendancesRouter();
-  const commissionsRouter = new CommissionsRouter();
-  const servicesRouter = new ServicesRouter();
-  const userAttendancesRouter = new UserAttendancesRouter();
-
-  attendanceRouter.setRoutes(coreRouter);
-  commissionsRouter.setRoutes(coreRouter);
-  servicesRouter.setRoutes(coreRouter);
-  userAttendancesRouter.setRoutes(coreRouter);
+class CoreRouter {
+  static setHandlers() {
+    const group = Router();
+  
+    const attendanceRouter = new AttendancesRouter(group);
+    const commissionsRouter = new CommissionsRouter(group);
+    const servicesRouter = new ServicesRouter(group);
+    const userAttendancesRouter = new UserAttendancesRouter(group);
+  
+    attendanceRouter.setRoutes();
+    commissionsRouter.setRoutes();
+    servicesRouter.setRoutes();
+    userAttendancesRouter.setRoutes();
+  
+    return group;
+  }
 }
+
+export default CoreRouter;

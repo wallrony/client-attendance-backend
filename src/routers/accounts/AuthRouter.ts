@@ -1,16 +1,16 @@
-import { IRouter } from "express";
+import { IRouter, Request, Response } from "express";
 
 import Router from "../Router";
 import AuthHandler from "../../handlers/AuthHandler";
 
 class AuthRouter extends Router<AuthHandler> {
-  constructor() {
-    super(new AuthHandler());
+  constructor(router: IRouter) {
+    super('AuthRouter', new AuthHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.post('/login', this.handler.login);
-    router.post('/register', this.handler.register);
+  setRoutes() {
+    this.setRouteWithLog('POST', '/login', this.handler.login);
+    this.setRouteWithLog('POST', '/register', this.handler.register);
   }
 }
 

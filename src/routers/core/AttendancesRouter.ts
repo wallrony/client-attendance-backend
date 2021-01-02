@@ -3,18 +3,15 @@ import AttendancesHandler from "../../handlers/AttendancesHandler";
 import Router from "../Router";
 
 class AttendancesRouter extends Router<AttendancesHandler> {
-  constructor() {
-    super(new AttendancesHandler());
+  constructor(router: IRouter) {
+    super('AttendancesRouter', new AttendancesHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.route('/attendances')
-      .get(this.handler.index)
-      .post(this.handler.add);
-
-    router.route('/attendances/:id')
-      .get(this.handler.update)
-      .post(this.handler.delete);
+  setRoutes() {
+    this.setRouteWithLog('GET', '/attendances', this.handler.index)
+    this.setRouteWithLog('POST', '/attendances', this.handler.add)
+    this.setRouteWithLog('PUT', '/attendances/:id', this.handler.update)
+    this.setRouteWithLog('DELETE', '/attendances/:id', this.handler.delete)
   }
 }
 

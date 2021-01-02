@@ -3,18 +3,33 @@ import ServicesHandler from "../../handlers/ServicesHandler";
 import Router from "../Router";
 
 class ServicesRouter extends Router<ServicesHandler> {
-  constructor() {
-    super(new ServicesHandler());
+  constructor(router: IRouter) {
+    super('ServicesRouter', new ServicesHandler(), router);
   }
 
-  setRoutes(router: IRouter) {
-    router.route('/attendances/:attendance_id/services')
-      .get(this.handler.index)
-      .post(this.handler.add);
+  setRoutes() {
+    this.setRouteWithLog(
+      'GET',
+      '/attendances/:attendance_id/services',
+      this.handler.index
+    );
 
-    router.route('/services/:id')
-      .put(this.handler.update)
-      .delete(this.handler.delete);
+    this.setRouteWithLog(
+      'POST',
+      '/attendances/:attendance_id/services',
+      this.handler.add
+    );
+
+    this.setRouteWithLog(
+      'PUT',
+      '/services/:id',
+      this.handler.update
+    );
+    this.setRouteWithLog(
+      'DELETE',
+      '/services/:id',
+      this.handler.delete
+    );
   }
 }
 

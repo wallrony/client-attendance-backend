@@ -7,10 +7,7 @@ Este é um backend para a aplicação Client Attendances. Logo terá uma explica
 ## Tarefas Pendentes
 
 <ul>
-  <li>Construir CRUD de serviços dos atendimentos dos usuários;</li>
   <li>Construir Middlewares;</li>
-  <li>Construir Sistema de Rotas;</li>
-  <li>Construir os ServiceHandlers.</li>
 </ul>
 
 ## Pacotes Presentes neste Repositório.
