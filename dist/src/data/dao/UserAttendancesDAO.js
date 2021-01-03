@@ -14,7 +14,7 @@ class UserAttendancesDAO extends IUserAttendanceDAO_1.default {
         }
         for (const row of rows) {
             const secondRow = await connection('user_attendance_services')
-                .select('services.name', 'services.id')
+                .select('services.name', 'services.id', 'services.price', 'services.duration')
                 .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
                 .where('user_attendance_services.user_attendance_id', '=', String(row['id']));
             row['services'] = secondRow;
@@ -44,25 +44,31 @@ class UserAttendancesDAO extends IUserAttendanceDAO_1.default {
         if (!secondRow.length) {
             throw GeneralUtils_1.createError('internal-error', `error-inserting-user-attendance-services`);
         }
-        const finalRow = await trx.commit();
+        await trx.commit();
+        const finalRow = await connection('user_attendance_services')
+            .select('services.name', 'services.id', 'services.price', 'services.duration')
+            .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
+            .where('user_attendance_services.user_attendance_id', '=', String(row[0]['id']));
+        console.log(finalRow);
+        row[0]['services'] = finalRow;
         await trx.destroy();
         await connection.destroy();
         if (!finalRow) {
             throw GeneralUtils_1.createError('internal-error', `error-commiting-transaction-${this.entityName}`);
         }
-        row[0].services = services;
         return row[0];
     }
     async update(data, services) {
         const connection = Connection_1.createConnection();
-        const row = await connection(this.tableName)
+        const trx = await connection.transaction();
+        const row = await trx(this.tableName)
             .update(data)
             .where('id', '=', String(data['id']))
             .returning('*');
         if (!row) {
             throw GeneralUtils_1.createError('not-found', `${this.entityName} not found`);
         }
-        const secondRow = await connection('user_attendance_services')
+        await trx('user_attendance_services')
             .where('user_attendance_services.user_attendance_id', '=', String(data.id))
             .delete();
         const servicesList = [];
@@ -72,13 +78,20 @@ class UserAttendancesDAO extends IUserAttendanceDAO_1.default {
                 service_id
             });
         }
-        const thirdRow = await connection('user_attendance_services')
+        const thirdRow = await trx('user_attendance_services')
             .insert(servicesList);
         if (!thirdRow) {
             throw GeneralUtils_1.createError('internal-error', `error-inserting-user-attendance-services`);
         }
+        await trx.commit();
+        const finalRow = await connection('user_attendance_services')
+            .select('services.name', 'services.id', 'services.price', 'services.duration')
+            .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
+            .where('user_attendance_services.user_attendance_id', '=', String(row[0]['id']));
+        console.log(finalRow);
+        row[0]['services'] = finalRow;
+        await trx.destroy();
         await connection.destroy();
-        row[0]['services'] = services;
         return row[0];
     }
     async delete(id) {

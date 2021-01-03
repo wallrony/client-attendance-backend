@@ -18,7 +18,7 @@ class UserAttendancesDAO extends IUserAttendanceDAO {
 
     for(const row of rows) {
       const secondRow = await connection('user_attendance_services')
-        .select('services.name', 'services.id')
+      .select('services.name', 'services.id', 'services.price', 'services.duration')
         .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
         .where('user_attendance_services.user_attendance_id', '=', String(row['id']));
 
@@ -60,7 +60,16 @@ class UserAttendancesDAO extends IUserAttendanceDAO {
       throw createError('internal-error', `error-inserting-user-attendance-services`);
     }
 
-    const finalRow = await trx.commit();
+    await trx.commit();
+
+    const finalRow = await connection('user_attendance_services')
+      .select('services.name', 'services.id', 'services.price', 'services.duration')
+      .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
+      .where('user_attendance_services.user_attendance_id', '=', String(row[0]['id']));
+
+    console.log(finalRow)
+
+    row[0]['services'] = finalRow;
 
     await trx.destroy();
     await connection.destroy();
@@ -69,15 +78,15 @@ class UserAttendancesDAO extends IUserAttendanceDAO {
       throw createError('internal-error', `error-commiting-transaction-${this.entityName}`);
     }
 
-    row[0].services = services
-
     return row[0];
   }
 
   async update(data: UserAttendance, services: number[]): Promise<UserAttendance> {
     const connection = createConnection();
 
-    const row = await connection(this.tableName)
+    const trx = await connection.transaction();
+
+    const row = await trx(this.tableName)
       .update(data)
       .where('id', '=', String(data['id']))
       .returning<UserAttendance>('*');
@@ -86,7 +95,7 @@ class UserAttendancesDAO extends IUserAttendanceDAO {
       throw createError('not-found', `${this.entityName} not found`);
     }
 
-    const secondRow = await connection('user_attendance_services')
+    await trx('user_attendance_services')
       .where('user_attendance_services.user_attendance_id', '=', String(data.id))
       .delete();
     
@@ -99,16 +108,26 @@ class UserAttendancesDAO extends IUserAttendanceDAO {
       })
     }
 
-    const thirdRow = await connection('user_attendance_services')
+    const thirdRow = await trx('user_attendance_services')
       .insert(servicesList)
 
     if(!thirdRow) {
       throw createError('internal-error', `error-inserting-user-attendance-services`);
     }
 
-    await connection.destroy();
+    await trx.commit();
 
-    row[0]['services'] = services;
+    const finalRow = await connection('user_attendance_services')
+    .select('services.name', 'services.id', 'services.price', 'services.duration')
+      .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
+      .where('user_attendance_services.user_attendance_id', '=', String(row[0]['id']));
+
+    console.log(finalRow)
+
+    row[0]['services'] = finalRow;
+
+    await trx.destroy();
+    await connection.destroy();
 
     return row[0];
   }

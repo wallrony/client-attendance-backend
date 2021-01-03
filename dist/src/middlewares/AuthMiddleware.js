@@ -35,11 +35,11 @@ let AuthMiddleware = class AuthMiddleware {
         }
         const authorization = request.headers['authorization'];
         if (!authorization || !authorization.length) {
-            return ResponseUtils_1.makeResponse(response, '', 'need authorization token');
+            return ResponseUtils_1.makeResponse(response, 'unauthorized-user', 'need authorization token');
         }
         const authorizationSplit = authorization === null || authorization === void 0 ? void 0 : authorization.split(' ');
         if (authorizationSplit.length !== 2) {
-            return ResponseUtils_1.makeResponse(response, '', 'wrong authorization header value');
+            return ResponseUtils_1.makeResponse(response, 'unauthorized-user', 'wrong authorization header value');
         }
         const token = authorizationSplit[1];
         const result = TokenUtils_1.verifyToken(token);

@@ -33,13 +33,13 @@ export class AuthMiddleware implements NestMiddleware {
     const authorization = request.headers['authorization'];
 
     if(!authorization || !authorization.length) {
-      return makeResponse(response, '', 'need authorization token');
+      return makeResponse(response, 'unauthorized-user', 'need authorization token');
     }
 
     const authorizationSplit: string[] = authorization?.split(' ');
 
     if(authorizationSplit.length !== 2) {
-      return makeResponse(response, '', 'wrong authorization header value');
+      return makeResponse(response, 'unauthorized-user', 'wrong authorization header value');
     }
 
     const token = authorizationSplit[1];

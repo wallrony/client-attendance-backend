@@ -1727,7 +1727,7 @@
         "affectsGlobalScope": false
       },
       "../src/middlewares/AuthMiddleware.ts": {
-        "version": "897f63418f7d1b3bcb6c5ba0f6bf3e57b9597fbd3602a1a5596fef655d853f2f",
+        "version": "6cb44ca221085aec8678fbe1df6298a52d2b684b52c7f5de127902ce298a1877",
         "signature": "de086113295d9ba898fbfd647ec55763610d5b9660847a565f726fc406b7bc1e",
         "affectsGlobalScope": false
       },
@@ -1867,7 +1867,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/UserAttendancesDAO.ts": {
-        "version": "741e1bbd0a1e3cdaad6a60e78b8547981b7683c9b2799773492d08c3de8712d8",
+        "version": "f6f537e1c1bf3febac3b3b0606a364dceddc182238763c393e3a886b0f7a4b53",
         "signature": "450888e83faa4579f6d1541b16a376a753ed71b7cbcb910f0dc4a49724b4fdf1",
         "affectsGlobalScope": false
       },
