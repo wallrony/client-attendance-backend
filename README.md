@@ -43,4 +43,4 @@ O banco de dados utilizado foi o PostgreSQL para manter uma comunicação entre 
 
 Seu diagrama de entidades relacionadas segue da mesma forma que o print abaixo:
 
-![](ilustration_images/bcdd_diagram.png)
+![](/ilustration_images/bcdd_diagram.png)
