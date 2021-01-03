@@ -1,4 +1,5 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import { AuthMiddleware } from "src/middlewares/AuthMiddleware";
 import { AttendancesModule } from "src/modules/attendances.module";
 import { AuthModule } from "src/modules/auth.module";
 import { CommissionsModule } from "src/modules/commissions.module";
@@ -20,5 +21,12 @@ import { UsersModule } from "src/modules/users.module";
     UsersModule,
   ],
 })
-
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes(
+      'api/core',
+      'api/accounts/users',
+      'api/accounts/doctors',
+    );
+  }
+}

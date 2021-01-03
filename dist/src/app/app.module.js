@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const AuthMiddleware_1 = require("../middlewares/AuthMiddleware");
 const attendances_module_1 = require("../modules/attendances.module");
 const auth_module_1 = require("../modules/auth.module");
 const commissions_module_1 = require("../modules/commissions.module");
@@ -17,6 +18,9 @@ const services_module_1 = require("../modules/services.module");
 const user_attendances_module_1 = require("../modules/user.attendances.module");
 const users_module_1 = require("../modules/users.module");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer.apply(AuthMiddleware_1.AuthMiddleware).forRoutes('api/core', 'api/accounts/users', 'api/accounts/doctors');
+    }
 };
 AppModule = __decorate([
     common_1.Module({

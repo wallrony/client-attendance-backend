@@ -19,7 +19,6 @@ class UsersService extends Service_1.default {
             result.data = await Facade_1.default().updateUser(data);
         }
         catch (e) {
-            console.log(e);
             result.err = e;
         }
         return result;

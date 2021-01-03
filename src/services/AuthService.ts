@@ -1,3 +1,5 @@
+import AuthorizedUser from "src/core/models/AuthorizedUser";
+import { createToken } from "src/core/utils/TokenUtils";
 import AuthCredentials from "../core/models/AuthCredentials";
 import ServiceResponse from "../core/models/ServiceResponse";
 import User from "../core/models/User";
@@ -9,12 +11,16 @@ import Service from "./Service";
  * @method register(data)
  */
 class AuthService extends Service {
-  async login(credentials: AuthCredentials): Promise<ServiceResponse<User>> {
-    const result: ServiceResponse<User> = {};
+  async login(credentials: AuthCredentials): Promise<ServiceResponse<AuthorizedUser>> {
+    const result: ServiceResponse<AuthorizedUser> = {};
 
     try {
-      result.data = await FacadeInstance().login(credentials);
+      result.data = {};
+      
+      result.data.user = await FacadeInstance().login(credentials);
+      result.data.auth_token = createToken(result.data.user.id);
     } catch (e) {
+      console.log(e)
       result.err = e;
     }
 
@@ -27,6 +33,7 @@ class AuthService extends Service {
     try {
       result.data = await FacadeInstance().register(data);
     } catch (e) {
+      console.log(e)
       result.err = e;
     }
 

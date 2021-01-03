@@ -2,13 +2,9 @@
 
 Autor: Wallisson Rony de M. N.
 
-Este é um backend para a aplicação Client Attendances. Logo terá uma explicação sobre as entidades presentes, sobre o relacionamento entre entidades e tabelas de requisições disponíveis.
+Este é um backend para a aplicação Client Attendances.
 
-## Tarefas Pendentes
-
-<ul>
-  <li>Construir Middlewares;</li>
-</ul>
+Para visualizar as requisições disponíveis na aplicação, utilize do JSON "Insomnia Workspace.json" do repositório, adicionando-o como arquivo de configuração no programa Insomnia ou Postman.
 
 ## Pacotes Presentes neste Repositório.
 
@@ -40,3 +36,7 @@ knex *: por padrão, nesse projeto, foi inserida a configuração de client do k
  - 'knex:migrate:rollback': deverá ser utilizado quando for necessário desfazer uma atualização realizada no banco de dados.
 
  - 'knex:seed': deverá ser executado quando for necessário inserir 'seeds' (dados básicos) ao banco de dados, como, por exemplo, uma lista de produtos que já estarão cadastrados para primeiro funcionamento.
+
+## Database (Banco de Dados)
+
+O banco de dados utilizado foi o PostgreSQL para manter uma comunicação entre entidades de forma relacional, o que torna a interpretação de dados semanticamente mais simples e clara.

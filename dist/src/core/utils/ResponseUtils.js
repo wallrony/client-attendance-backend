@@ -4,7 +4,13 @@ exports.makeResponse = void 0;
 function makeResponse(response, status = 'bad-req', data = undefined) {
     if (!status.length)
         status = 'bad-req';
-    const code = statusCode[status];
+    if (status === 'error') {
+        if (String(data).includes('users_email_unique')) {
+            status = 'bad-req';
+            data = 'email already in use';
+        }
+    }
+    let code = statusCode[status];
     if (typeof (data) === 'string') {
         data = {
             message: data
@@ -18,7 +24,7 @@ const statusCode = {
     'created': 201,
     'no-data': 400,
     'bad-req': 400,
-    'unauthorized': 401,
+    'unauthorized-user': 401,
     'not-found': 404,
     'internal-error': 500
 };

@@ -4,7 +4,10 @@
 require('dotenv-safe').config();
 
 // Importação de bibliotecas externas.
-import { sign } from 'jsonwebtoken';
+import {
+  sign,
+  verify
+} from 'jsonwebtoken';
 
 /* A função abaixo gera e retorna um novo token de
  * autenticação utilizando o id do usuário e a palavra
@@ -17,8 +20,26 @@ export function createToken(id: number): string {
   const token = sign(
     { id },
     String(process.env.SECRET),
-    { expiresIn: expireTime, }
+    { expiresIn: expireTime, algorithm: "HS256" }
   );
 
   return token;
+}
+
+export function verifyToken(token: string): number | string {
+  let result: number | string = 0;
+
+  try {
+    const decoded = verify(
+      token,
+      String(process.env.SECRET),
+      { algorithms: ["HS256"] }
+    );
+
+    result = decoded['id'];
+  } catch(e) {
+    result = 'unauthorized-user';
+  }
+
+  return result;
 }

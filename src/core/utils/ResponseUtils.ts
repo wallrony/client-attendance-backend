@@ -13,10 +13,17 @@ export function makeResponse(
 ) {
   if(!status.length) status = 'bad-req';
 
+  if(status === 'error') {
+    if(String(data).includes('users_email_unique')) {
+      status = 'bad-req';
+      data = 'email already in use';
+    }
+  }
+
   /* Adquirindo o código da resposta a partir do tipo
    * de resposta fornecido na camada anterior (controller).
    */
-  const code = statusCode[status];
+  let code = statusCode[status];
 
   if(typeof(data) === 'string') {
     data = {
@@ -40,7 +47,7 @@ const statusCode: Record<string, number> = {
   'created': 201,
   'no-data': 400,
   'bad-req': 400,
-  'unauthorized': 401,
+  'unauthorized-user': 401,
   'not-found': 404,
   'internal-error': 500
 };

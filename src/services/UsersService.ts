@@ -26,7 +26,6 @@ class UsersService extends Service {
     try {
       result.data = await FacadeInstance().updateUser(data);
     } catch(e) {
-      console.log(e)
       result.err = e;
     }
 

@@ -1636,49 +1636,9 @@
         "signature": "088d420a09a36d241f1ddbdcb553951c02ef0844014727a29712d2ced57edd22",
         "affectsGlobalScope": false
       },
-      "../src/core/improvers/Improver.ts": {
-        "version": "226e58df63fca8164273178dbb802c1b8c891b87d082981391c0c53e382e621b",
-        "signature": "699eac4c0c5c3717cc831cd035a30b593929a29da7853eb7a00a2b7bf4cd3ee7",
-        "affectsGlobalScope": false
-      },
       "../src/core/models/Model.ts": {
         "version": "edbeff3d17de07f32ea79480b16e187c7f679dbb105b42a7421dfb21e96de3fa",
         "signature": "c6d0360b1d34ca4b80021ca34ac55f587b7396b9ad97173dae585407a77fed86",
-        "affectsGlobalScope": false
-      },
-      "../src/core/models/ServiceResponse.ts": {
-        "version": "60c9e88dcab46dba97ecd265b6044ab7747cdc4f1467a9a3594d343c02a9bf54",
-        "signature": "8082b3b06f692e5cb164b9dc01edf90fef0b1b46c7a8ce084ea7e7367e016fd4",
-        "affectsGlobalScope": false
-      },
-      "../src/core/utils/ResponseUtils.ts": {
-        "version": "f7d7fd65872203d7652ff6ce100b8d3ed86061c449f39fc3c96f1c1ca94a7a91",
-        "signature": "42c70c575133b5e42a6a0a2332cb6b078bc13fc00ac758a92d509e79387e442d",
-        "affectsGlobalScope": false
-      },
-      "../src/services/Service.ts": {
-        "version": "d9f99f2892cebfaac00aad500ce35d0a398c6ace121bfe19e6f9cc1043cc6925",
-        "signature": "17a6b89901a18d85f8ae04a00a4f781a6db6f04751dab6cecafc82368b6d2e9b",
-        "affectsGlobalScope": false
-      },
-      "../src/handlers/Handler.ts": {
-        "version": "40a33c2373a8cb0573f3fc30234ffe5426413f39fc7b965a8034fb8bcc370191",
-        "signature": "dba449b50f5ae90a81290956094274e51b92b9d287774c27cf3cbfc270966300",
-        "affectsGlobalScope": false
-      },
-      "../src/core/models/Attendance.ts": {
-        "version": "ba1a865a474edcb987155d792ae42a28a5f20e0ed4ffd9da264da04a4397014f",
-        "signature": "43ea69e6bb64183a6325dc28b64cfca727a8b9676337881babbbd9e871f7bd7a",
-        "affectsGlobalScope": false
-      },
-      "../src/core/models/AuthCredentials.ts": {
-        "version": "d8ea2e4ceaf0849e77cb173d75fbdbdb58771e2d75fd35320b6d444641d16d32",
-        "signature": "c29b8b2167796b0e402b8596c7d8c564fed78b238c2864d85ccc719cdb81c4e1",
-        "affectsGlobalScope": false
-      },
-      "../src/core/models/Commission.ts": {
-        "version": "0cd7a84a96e0baa25fc7d136753060502ecf5b6f1e0c962f6239e606b24daa89",
-        "signature": "c344847ab4388f52d2618be12a5f74bb2159f104f873687f429824eb2eca81f8",
         "affectsGlobalScope": false
       },
       "../src/core/models/User.ts": {
@@ -1686,34 +1646,19 @@
         "signature": "ae2fe549be4936123cae7d22090562092f0885c6c1fa4c1adca44f4495fa9e97",
         "affectsGlobalScope": false
       },
-      "../src/core/models/Doctor.ts": {
-        "version": "365eb024bae7d9e94f14133904d6d2e4d3974e6bd934f2f6d96a45c239de2a46",
-        "signature": "43a5879d02fa1b4ce10f30fe95130b0f903681de38670269e2362bd49d566771",
+      "../src/core/utils/ResponseUtils.ts": {
+        "version": "13df675fe1432ea71d8aa76cc5fdf13ac9b08024eae72f0a7aa8d566bbedf1d8",
+        "signature": "42c70c575133b5e42a6a0a2332cb6b078bc13fc00ac758a92d509e79387e442d",
         "affectsGlobalScope": false
       },
-      "../src/core/models/Service.ts": {
-        "version": "5ea651ffb7ab854618166626c9b97272923e5bc0589c0235607cac3fba16f786",
-        "signature": "0ae779e54c71bc502fc2f0205dcef0d31561f44aecaff443144f40db99e4f879",
+      "../node_modules/@types/jsonwebtoken/index.d.ts": {
+        "version": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
+        "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
         "affectsGlobalScope": false
       },
-      "../src/core/models/UserAttendance.ts": {
-        "version": "5c3c740592628f33d848e5917af72ca51cb8bad529137dc22f206dc77c3fbd8e",
-        "signature": "2603680bd0a1522098c63c89df929b6050f65dae8990ca4cb1aa5632f07da1fd",
-        "affectsGlobalScope": false
-      },
-      "../src/core/utils/GeneralUtils.ts": {
-        "version": "05d7696339a763e1d53e2f6583c84659d6a8cd87c9554db4e5774e0fc361fdc5",
-        "signature": "7b02bfdd1eadb7c4030fcd0014493631076b16f80ba3a34ca4c14f6694fed75d",
-        "affectsGlobalScope": false
-      },
-      "../src/data/dao_interfaces/IDAO.ts": {
-        "version": "1d740c17ff93d21a181594f613198164f073e82b46a9d8490d57364393f40456",
-        "signature": "f0fa73ea0e6301ca61e054a6eed6628d1eb8be9da8f82e07675ae1e508e00c38",
-        "affectsGlobalScope": false
-      },
-      "../src/data/dao_interfaces/IAttendancesDAO.ts": {
-        "version": "fc6211a69b4abc628850e387b2ca89c592f14032472df74646b76f3dcc4dd6d0",
-        "signature": "94f181191ca49130c41b4bb85876d9ca11f23bc4b61b04ee123950d3992d9f9e",
+      "../src/core/utils/TokenUtils.ts": {
+        "version": "e16d4ad58d95a122ec80affffb310ed6280b5e146a2383ef2e54dfbf190aece4",
+        "signature": "7ab814b3060685cd7d90901035d72089fa53869eeb62262c1271149ce2489823",
         "affectsGlobalScope": false
       },
       "../node_modules/tarn/dist/PromiseInspection.d.ts": {
@@ -1774,6 +1719,76 @@
       "../src/data/database/Connection.ts": {
         "version": "3ee03b756cbe24d19e22f7e60427d5168bd366448b1e7ef416b3be2c1912cf27",
         "signature": "ca8812b44e73ea24e25f2f0e2ede0cdd8837744d315f8b1417fd7e1c28c24761",
+        "affectsGlobalScope": false
+      },
+      "../src/middlewares/AuthMiddleware.ts": {
+        "version": "3de1010a9b0b2d70d60440534384c694905e258b8b7611a9f31562877fbde3e1",
+        "signature": "0255304330efc59eaea314c94fb7c9982893014e9a188ba678d7c080b98b33ec",
+        "affectsGlobalScope": false
+      },
+      "../src/core/improvers/Improver.ts": {
+        "version": "226e58df63fca8164273178dbb802c1b8c891b87d082981391c0c53e382e621b",
+        "signature": "699eac4c0c5c3717cc831cd035a30b593929a29da7853eb7a00a2b7bf4cd3ee7",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/ServiceResponse.ts": {
+        "version": "60c9e88dcab46dba97ecd265b6044ab7747cdc4f1467a9a3594d343c02a9bf54",
+        "signature": "8082b3b06f692e5cb164b9dc01edf90fef0b1b46c7a8ce084ea7e7367e016fd4",
+        "affectsGlobalScope": false
+      },
+      "../src/services/Service.ts": {
+        "version": "d9f99f2892cebfaac00aad500ce35d0a398c6ace121bfe19e6f9cc1043cc6925",
+        "signature": "17a6b89901a18d85f8ae04a00a4f781a6db6f04751dab6cecafc82368b6d2e9b",
+        "affectsGlobalScope": false
+      },
+      "../src/handlers/Handler.ts": {
+        "version": "40a33c2373a8cb0573f3fc30234ffe5426413f39fc7b965a8034fb8bcc370191",
+        "signature": "dba449b50f5ae90a81290956094274e51b92b9d287774c27cf3cbfc270966300",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/Attendance.ts": {
+        "version": "ba1a865a474edcb987155d792ae42a28a5f20e0ed4ffd9da264da04a4397014f",
+        "signature": "43ea69e6bb64183a6325dc28b64cfca727a8b9676337881babbbd9e871f7bd7a",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/AuthCredentials.ts": {
+        "version": "d8ea2e4ceaf0849e77cb173d75fbdbdb58771e2d75fd35320b6d444641d16d32",
+        "signature": "c29b8b2167796b0e402b8596c7d8c564fed78b238c2864d85ccc719cdb81c4e1",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/Commission.ts": {
+        "version": "0cd7a84a96e0baa25fc7d136753060502ecf5b6f1e0c962f6239e606b24daa89",
+        "signature": "c344847ab4388f52d2618be12a5f74bb2159f104f873687f429824eb2eca81f8",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/Doctor.ts": {
+        "version": "365eb024bae7d9e94f14133904d6d2e4d3974e6bd934f2f6d96a45c239de2a46",
+        "signature": "43a5879d02fa1b4ce10f30fe95130b0f903681de38670269e2362bd49d566771",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/Service.ts": {
+        "version": "5ea651ffb7ab854618166626c9b97272923e5bc0589c0235607cac3fba16f786",
+        "signature": "0ae779e54c71bc502fc2f0205dcef0d31561f44aecaff443144f40db99e4f879",
+        "affectsGlobalScope": false
+      },
+      "../src/core/models/UserAttendance.ts": {
+        "version": "5c3c740592628f33d848e5917af72ca51cb8bad529137dc22f206dc77c3fbd8e",
+        "signature": "2603680bd0a1522098c63c89df929b6050f65dae8990ca4cb1aa5632f07da1fd",
+        "affectsGlobalScope": false
+      },
+      "../src/core/utils/GeneralUtils.ts": {
+        "version": "05d7696339a763e1d53e2f6583c84659d6a8cd87c9554db4e5774e0fc361fdc5",
+        "signature": "7b02bfdd1eadb7c4030fcd0014493631076b16f80ba3a34ca4c14f6694fed75d",
+        "affectsGlobalScope": false
+      },
+      "../src/data/dao_interfaces/IDAO.ts": {
+        "version": "1d740c17ff93d21a181594f613198164f073e82b46a9d8490d57364393f40456",
+        "signature": "f0fa73ea0e6301ca61e054a6eed6628d1eb8be9da8f82e07675ae1e508e00c38",
+        "affectsGlobalScope": false
+      },
+      "../src/data/dao_interfaces/IAttendancesDAO.ts": {
+        "version": "fc6211a69b4abc628850e387b2ca89c592f14032472df74646b76f3dcc4dd6d0",
+        "signature": "94f181191ca49130c41b4bb85876d9ca11f23bc4b61b04ee123950d3992d9f9e",
         "affectsGlobalScope": false
       },
       "../src/data/dao/AttendancesDAO.ts": {
@@ -1881,9 +1896,14 @@
         "signature": "b22fcf7dd7d6da39609a6197a9858e3c7137183d72c3ac586b8be188bd3f0db2",
         "affectsGlobalScope": false
       },
+      "../src/core/models/AuthorizedUser.ts": {
+        "version": "20e69cafa91f233862095a1e9e34247aeb94ec7e49107a8e7112b7fa308c6b0d",
+        "signature": "bff09f4676ef84867cf7c120806ac59549b7bf94df9e164243d9df3016ee9aee",
+        "affectsGlobalScope": false
+      },
       "../src/services/AuthService.ts": {
-        "version": "57bf207345f88cbf5df5afa725b08387c5b1e841f1e009b4113aef82eb341791",
-        "signature": "54137aa9eba8f808b1c2d326696b7fd81bc04d6f4aa16f1344250044bb1570ef",
+        "version": "febac9c6c954209d2015fc78146a386fb8376864a17ae9375cc64e3fc554eea5",
+        "signature": "9fe05a3a0e90bf1b7d71cdabbfae16b72dd969ec5dacfa69e95b1f9aef6e90f6",
         "affectsGlobalScope": false
       },
       "../src/handlers/AuthHandler.ts": {
@@ -1912,8 +1932,8 @@
         "affectsGlobalScope": false
       },
       "../src/services/DoctorAuthService.ts": {
-        "version": "a4dc384f923c954e89ef15e6a1392a01d3d22e00c54d4e531a071a88f7333883",
-        "signature": "38b4bab9e491512c91dce720578fcf2b05df6c1f604c94b156496bcdb6e0215b",
+        "version": "4483333c822dcd31eaefb33a829e3e31d6a4985b0d9fb7fd6298a029dfd61ff2",
+        "signature": "b3be33e7a9c2c8d9d57a0313c7fc837593bad4a98c98d33bb1a43e4ea90fa3ca",
         "affectsGlobalScope": false
       },
       "../src/handlers/DoctorAuthHandler.ts": {
@@ -1972,7 +1992,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/UsersService.ts": {
-        "version": "d350f2eead5b38a0a66143ecb28f0038e4a27cb1f277412583b2d15cb2bbabff",
+        "version": "80ec0655f9c114e52b3ad2fe377aa42818002b953d58721729c18f8a9c4e1ecf",
         "signature": "a00e49a9e6d3d660775ca084461c4ae32ca3fabaccb88e543e9436ede60c5da4",
         "affectsGlobalScope": false
       },
@@ -1987,8 +2007,8 @@
         "affectsGlobalScope": false
       },
       "../src/app/app.module.ts": {
-        "version": "0ff261c06bc42fac3501abafa9d33a41e14bc3b7173c5cd169c2f554bdd7ac24",
-        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
+        "version": "262c0191dd9d6e40fa3e93ea1338ba2a044fd3c9ddc59bf791ce679be6470d23",
+        "signature": "2ce909d16cb1e32a307da57ee7855275298305dd05bc975c69b919b63db88191",
         "affectsGlobalScope": false
       },
       "../src/app/app.ts": {
@@ -2006,24 +2026,9 @@
         "signature": "a34bfc0f566865aad8fd5d13756e5e9910d10e6f5f0f7facbdf5139fabd80af2",
         "affectsGlobalScope": false
       },
-      "../src/core/models/AuthorizedUser.ts": {
-        "version": "20e69cafa91f233862095a1e9e34247aeb94ec7e49107a8e7112b7fa308c6b0d",
-        "signature": "bff09f4676ef84867cf7c120806ac59549b7bf94df9e164243d9df3016ee9aee",
-        "affectsGlobalScope": false
-      },
       "../src/core/utils/RequestUtils.ts": {
         "version": "beb26649422bc3936aba19d482d451f7e34405f958ffd7b015326ec7ac30021f",
         "signature": "5a0a6eef9ca8958527da91e3dea71608dee2370f8b928b8890b7e3eaa65fb55e",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/@types/jsonwebtoken/index.d.ts": {
-        "version": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
-        "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
-        "affectsGlobalScope": false
-      },
-      "../src/core/utils/TokenUtils.ts": {
-        "version": "aa423f85074b5869275f3ac4d8601e9cd0ce38d1244384ea369a9000ce1b2858",
-        "signature": "cdecbaf8f4ac51c52d82905e2ea666f1b92c09715b9ee3fcb4bb4b3a72d236ee",
         "affectsGlobalScope": false
       },
       "../src/data/database/migrations/000_users_table.ts": {
@@ -3777,6 +3782,7 @@
       ],
       "../src/app/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../src/middlewares/AuthMiddleware.ts",
         "../src/modules/attendances.module.ts",
         "../src/modules/auth.module.ts",
         "../src/modules/commissions.module.ts",
@@ -4056,6 +4062,14 @@
       "../src/main.ts": [
         "../src/app/app.ts"
       ],
+      "../src/middlewares/AuthMiddleware.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../src/core/models/User.ts",
+        "../src/core/utils/ResponseUtils.ts",
+        "../src/core/utils/TokenUtils.ts",
+        "../src/data/database/Connection.ts"
+      ],
       "../src/modules/attendances.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/handlers/AttendancesHandler.ts",
@@ -4165,8 +4179,10 @@
       ],
       "../src/services/AuthService.ts": [
         "../src/core/models/AuthCredentials.ts",
+        "../src/core/models/AuthorizedUser.ts",
         "../src/core/models/ServiceResponse.ts",
         "../src/core/models/User.ts",
+        "../src/core/utils/TokenUtils.ts",
         "../src/data/Facade.ts",
         "../src/services/Service.ts"
       ],
@@ -4178,8 +4194,10 @@
       ],
       "../src/services/DoctorAuthService.ts": [
         "../src/core/models/AuthCredentials.ts",
+        "../src/core/models/AuthorizedUser.ts",
         "../src/core/models/Doctor.ts",
         "../src/core/models/ServiceResponse.ts",
+        "../src/core/utils/TokenUtils.ts",
         "../src/data/Facade.ts",
         "../src/services/Service.ts"
       ],
@@ -5527,6 +5545,9 @@
       "../node_modules/tarn/dist/utils.d.ts": [
         "../node_modules/tarn/dist/PromiseInspection.d.ts"
       ],
+      "../src/app/app.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
       "../src/app/app.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
@@ -5725,6 +5746,10 @@
         "../src/handlers/Handler.ts",
         "../src/services/UsersService.ts"
       ],
+      "../src/middlewares/AuthMiddleware.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/express/index.d.ts"
+      ],
       "../src/routers/Router.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/core/models/Model.ts",
@@ -5784,6 +5809,7 @@
       ],
       "../src/services/AuthService.ts": [
         "../src/core/models/AuthCredentials.ts",
+        "../src/core/models/AuthorizedUser.ts",
         "../src/core/models/ServiceResponse.ts",
         "../src/core/models/User.ts",
         "../src/services/Service.ts"
@@ -5795,6 +5821,7 @@
       ],
       "../src/services/DoctorAuthService.ts": [
         "../src/core/models/AuthCredentials.ts",
+        "../src/core/models/AuthorizedUser.ts",
         "../src/core/models/Doctor.ts",
         "../src/core/models/ServiceResponse.ts",
         "../src/services/Service.ts"
@@ -6281,6 +6308,7 @@
       "../src/handlers/UserAttendancesHandler.ts",
       "../src/handlers/UsersHandler.ts",
       "../src/main.ts",
+      "../src/middlewares/AuthMiddleware.ts",
       "../src/modules/attendances.module.ts",
       "../src/modules/auth.module.ts",
       "../src/modules/commissions.module.ts",
