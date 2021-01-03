@@ -5,7 +5,7 @@ SET TIME ZONE 'UTC';
 CREATE TABLE users (
   id serial primary key,
   name varchar(80) not null,
-  email varchar(50) not null,
+  email varchar(50) unique not null,
   password varchar(40) not null,
   birthday date not null,
   is_admin boolean not null default false
@@ -29,7 +29,7 @@ CREATE TABLE user_attendances (
   id serial primary key,
   user_id serial not null,
   attendance_id serial not null,
-  date timestamp with time zone not null,
+  date timestamp not null,
   constraint user_fk foreign key (user_id) references users(id),
   constraint attendance_fk foreign key (attendance_id) references attendances(id)
 );
@@ -49,10 +49,12 @@ CREATE TABLE user_attendance_services (
   service_id serial not null,
   constraint user_attendance_fk
     foreign key (user_attendance_id)
-    references user_attendances(id),
+    references user_attendances(id)
+    on delete cascade,
   constraint service_fk
     foreign key (service_id)
     references services(id)
+    on delete cascade
 );
 
 CREATE TABLE commissions (

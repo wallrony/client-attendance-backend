@@ -5,7 +5,9 @@ export async function up(knex: Knex) {
     table.increments('id').primary();
     table.integer('user_id').notNullable();
     table.integer('attendance_id').notNullable();
-    table.timestamp('date').notNullable();
+    table.timestamp('date', {
+      useTz: true,
+    }).notNullable();
 
     table.foreign('user_id').references('id').inTable('users');
     table.foreign('attendance_id').references('id').inTable('attendances');

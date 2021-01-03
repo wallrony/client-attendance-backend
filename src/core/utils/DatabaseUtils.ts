@@ -1,6 +1,6 @@
 import Knex from 'knex';
 
-import path from 'path';
+const path = require('path');
 
 require('dotenv-safe').config();
 
@@ -19,10 +19,6 @@ const devConfig: Knex.Config<any> = {
   },
   seeds: {
     directory: path.resolve(__dirname, 'src', 'data', 'database', 'seeds'),
-  },
-  pool: {
-    min: 3,
-    max: 10
   },
   useNullAsDefault: true,
 };

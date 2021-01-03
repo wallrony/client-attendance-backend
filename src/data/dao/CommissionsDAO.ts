@@ -1,15 +1,19 @@
 import Commission from "../../core/models/Commission";
 import { createError } from "../../core/utils/GeneralUtils";
 import ICommissionsDAO from "../dao_interfaces/ICommissionsDAO";
-import connection from "../database/Connection";
+import { createConnection } from "../database/Connection";
 
 class CommissionsDAO extends ICommissionsDAO {
   async index(doctorId: number): Promise<Commission[]> {
+    const connection = createConnection();
+
     const rows = await connection<Commission>(this.tableName)
       .select('*')
-      .where('doctor_id', '=', String(doctorId))
+      .where('doctor_id', '=', String(doctorId));
+    
+    await connection.destroy();
 
-    if(!rows.length) {
+    if(!rows) {
       throw createError('not-found', `${this.entityName} not found`);
     }
 
@@ -17,15 +21,19 @@ class CommissionsDAO extends ICommissionsDAO {
   }
 
   async add(data: Commission): Promise<Commission> {
+    const connection = createConnection();
+
     const row = await connection(this.tableName)
       .insert(data)
       .returning<Commission>('*');
+
+    await connection.destroy();
 
     if(!row) {
       throw createError('internal-error', `error-inserting-${this.entityName}`);
     }
 
-    return row;
+    return row[0];
   }
 }
 

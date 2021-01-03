@@ -1,3 +1,4 @@
+import { Injectable } from "@nestjs/common";
 import Attendance from "../core/models/Attendance";
 import ServiceResponse from "../core/models/ServiceResponse";
 import FacadeInstance from "../data/Facade";
@@ -8,6 +9,7 @@ import Service from "./Service";
  * @method update(Attendance)
  * @method delete(id)
  */
+@Injectable()
 class AttendancesService extends Service {
   async index(): Promise<ServiceResponse<Attendance[]>> {
     const result: ServiceResponse<Attendance[]> = {};
@@ -15,6 +17,7 @@ class AttendancesService extends Service {
     try {
       result.data = await FacadeInstance().indexAttendances();
     } catch(e) {
+      console.log(e);
       result.err = e;
     }
 

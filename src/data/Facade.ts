@@ -121,8 +121,8 @@ class Facade {
     return await this.userAttendancesDAO.add(data, services);
   }
 
-  async updateUserAttendance(data: UserAttendance): Promise<UserAttendance> {
-    return await this.userAttendancesDAO.update(data);
+  async updateUserAttendance(data: UserAttendance, services): Promise<UserAttendance> {
+    return await this.userAttendancesDAO.update(data, services);
   }
 
   async deleteUserAttendance(id: number): Promise<boolean> {

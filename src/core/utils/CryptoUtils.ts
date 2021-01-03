@@ -1,15 +1,15 @@
-import Crypto from 'crypto';
+const crypto = require('crypto');
 require('dotenv-safe').config();
 
 const cryptoData = {
   algorithm: 'aes256',
-  secret: process.env.SECRET,
+  secret: String(process.env.SECRET),
   type: 'hex',
   coding: 'utf8'
 };
 
-export function encriptPass(pass: string) {
-  const cipher = Crypto.createCipher(
+export function encriptPass(pass: string): string {
+  const cipher = crypto.createCipher(
     cryptoData.algorithm, cryptoData.secret
   );
 
@@ -20,7 +20,7 @@ export function encriptPass(pass: string) {
 }
 
 export function decriptPass(pass: string) {
-  const cipher = Crypto.createDecipher(
+  const cipher = crypto.createDecipher(
     cryptoData.algorithm, cryptoData.secret
   );
 

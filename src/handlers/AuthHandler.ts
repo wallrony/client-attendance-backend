@@ -5,7 +5,9 @@ import AuthService from '../services/AuthService';
 import Handler from './Handler';
 import { makeResponse } from '../core/utils/ResponseUtils';
 import AuthCredentials from '../core/models/AuthCredentials';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 
+@Controller('/api/accounts')
 class AuthHandler extends Handler<AuthService, User> {
   constructor() {
     super(
@@ -20,8 +22,9 @@ class AuthHandler extends Handler<AuthService, User> {
     );
   }
 
-  async login(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Post('/login')
+  async login(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
     
@@ -42,17 +45,16 @@ class AuthHandler extends Handler<AuthService, User> {
     );
   }
 
-  async register(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Post('/register')
+  async register(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
     
     const emptyFields = this.verifyFields(request.body);
 
-    if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body')
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req')
+    if(emptyFields.length) {
+      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are missing`);
     }
 
     const data: User = { ...request.body };

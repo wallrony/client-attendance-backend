@@ -1,6 +1,7 @@
 import Knex from 'knex';
 
 import Doctor from '../../../core/models/Doctor';
+import { encriptPass } from '../../../core/utils/CryptoUtils';
 
 export async function seed(knex: Knex) {
   const doctors: Doctor[] = [];
@@ -12,7 +13,7 @@ export async function seed(knex: Knex) {
     name: 'Doctor',
     birthday: '2000-01-01',
     email: 'doc@doc.com',
-    password: '123456',
+    password: encriptPass('123456'),
   });
 
   for(const doctor of doctors) {

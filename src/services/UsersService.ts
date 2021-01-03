@@ -7,7 +7,7 @@ import Service from "./Service";
  * @method show(id)
  * @method update(data)
  */
-class UserService extends Service {
+class UsersService extends Service {
   async show(id: number): Promise<ServiceResponse<User>> {
     const result: ServiceResponse<User> = {};
 
@@ -26,6 +26,7 @@ class UserService extends Service {
     try {
       result.data = await FacadeInstance().updateUser(data);
     } catch(e) {
+      console.log(e)
       result.err = e;
     }
 
@@ -33,4 +34,4 @@ class UserService extends Service {
   }
 }
 
-export default UserService;
+export default UsersService;

@@ -6,12 +6,11 @@ class Improver<T> {
   }
 
   createT(item: Record<string, any>): T {
-
     let data: Record<string, any> = {};
 
     for(const attr of Object.keys(item)) {
       if(this.mandatoryFields.includes(attr)) {
-        item[attr] = data[attr]
+        data[attr] = item[attr]
       }
     }
 

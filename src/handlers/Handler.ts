@@ -37,7 +37,13 @@ abstract class Handler<S extends Service, T extends Model> {
       return makeResponse(response, result.err.name, result.err.message);
     }
 
-    return makeResponse(response, 'success', result.data);
+    let data;
+
+    if(typeof(result.data) !== 'boolean') {
+      data = result.data;
+    }
+
+    return makeResponse(response, 'success', data);
   }
 
   /**
@@ -48,7 +54,9 @@ abstract class Handler<S extends Service, T extends Model> {
     const emptyFields: string[] = [];
 
     for (const field of this.mandatoryFields) {
-      if (!body[field]) {
+      if (!body[field] ||
+        (typeof(body[field]) === 'string' && !body[field].length)
+      ) {
         emptyFields.push(field);
       }
     }

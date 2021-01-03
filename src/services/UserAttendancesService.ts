@@ -34,12 +34,13 @@ class UserAttendancesService extends Service {
     return result;
   }
 
-  async update(data: UserAttendance): Promise<ServiceResponse<UserAttendance>> {
+  async update(data: UserAttendance, services: number[]): Promise<ServiceResponse<UserAttendance>> {
     const result: ServiceResponse<UserAttendance> = {};
 
     try {
-      result.data = await FacadeInstance().updateUserAttendance(data)
+      result.data = await FacadeInstance().updateUserAttendance(data, services)
     } catch(e) {
+      console.log(e)
       result.err = e;
     }
 

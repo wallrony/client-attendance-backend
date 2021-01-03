@@ -1,10 +1,13 @@
+import { Controller, Post, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
-import AuthCredentials from '../core/models/AuthCredentials';
-import Doctor from '../core/models/Doctor';
-import { makeResponse } from '../core/utils/ResponseUtils';
-import DoctorAuthService from '../services/DoctorAuthService';
-import Handler from './Handler';
 
+import Handler from './Handler';
+import Doctor from '../core/models/Doctor';
+import AuthCredentials from '../core/models/AuthCredentials';
+import DoctorAuthService from '../services/DoctorAuthService';
+import { makeResponse } from '../core/utils/ResponseUtils';
+
+@Controller('api/accounts')
 class DoctorAuthHandler extends Handler<DoctorAuthService, Doctor> {
   constructor() {
     super(
@@ -14,8 +17,9 @@ class DoctorAuthHandler extends Handler<DoctorAuthService, Doctor> {
     );
   }
 
-  async login(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Post('login-doctor')
+  async login(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
     
@@ -27,7 +31,7 @@ class DoctorAuthHandler extends Handler<DoctorAuthService, Doctor> {
       return makeResponse(response, 'bad-req', 'password field is missing');
     }
 
-    const data: AuthCredentials = { ...request.body }
+    const data: AuthCredentials = { email, password };
 
     return await this.execService(
       response,
@@ -36,20 +40,19 @@ class DoctorAuthHandler extends Handler<DoctorAuthService, Doctor> {
     );
   }
 
-  async register(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Post('register-doctor')
+  async register(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
     
     const emptyFields = this.verifyFields(request.body);
 
-    if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body')
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req');
+    if(emptyFields.length) {
+      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are missing`);
     }
 
-    const data: Doctor = { ...request.body };
+    const data: Doctor = this.improver.createT({ ...request.body });
 
     return await this.execService(
       response,

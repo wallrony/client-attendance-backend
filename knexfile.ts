@@ -1,5 +1,4 @@
-// Importação de bibliotecas externas.
-import path from 'path';
+const path = require('path');
 require('dotenv-safe').config();
 
 /* Definindo a exportação de configurações da
@@ -13,7 +12,7 @@ module.exports = {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
-      port: process.env.DB_PORT,
+      port: Number(process.env.DB_PORT),
       ssl: false
     },
     migrations: {

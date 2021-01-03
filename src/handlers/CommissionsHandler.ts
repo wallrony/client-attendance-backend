@@ -4,17 +4,20 @@ import Handler from "./Handler";
 import Commission from "../core/models/Commission";
 import CommissionsService from "../services/CommissionsService";
 import { makeResponse } from '../core/utils/ResponseUtils';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 
+@Controller('/api/core/doctor/:doctor_id/commissions')
 class CommissionsHandler extends Handler<CommissionsService, Commission> {
   constructor() {
     super(
       'commission',
       new CommissionsService(),
-      ['client_attendance_id', 'value']
+      ['doctor_id', 'client_attendance_id', 'value']
     );
   }
 
-  async index(request: Request, response: Response): Promise<Response> {
+  @Get()
+  async index(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { doctor_id } = request.params;
 
     if(!doctor_id.length) {
@@ -32,35 +35,36 @@ class CommissionsHandler extends Handler<CommissionsService, Commission> {
     );
   }
 
-  async add(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
-      return makeResponse(response, 'no-data', 'need body data');
-    }
-
-    const emptyFields = this.verifyFields(request.body);
-
-    if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body');
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
-    }
-
+  @Post()
+  async add(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { doctor_id } = request.params;
 
     if(!doctor_id.length) {
       return makeResponse(response, '', `need ${this.entityName} id param`);
     }
 
+    const body = request.body;
+
+    body['doctor_id'] = doctor_id;
+
+    if(!body) {
+      return makeResponse(response, 'no-data', 'need body data');
+    }
+
+    const emptyFields = this.verifyFields(body);
+
+    if(emptyFields.length) {
+      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
+    }
+
     try {
       Number(doctor_id);
-      Number(request.body['client_attendance_id']);
+      Number(body['client_attendance_id']);
     } catch {
       return makeResponse(response, '', 'wrong attendance_id param type');
     }
-
     const data = this.improver.createT({
-      doctor_id: Number(doctor_id),
-      ...request.body,
+      ...body
     });
 
     return await this.execService(

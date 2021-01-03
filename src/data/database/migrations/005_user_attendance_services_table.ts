@@ -5,8 +5,8 @@ export async function up(knex: Knex) {
     table.integer('user_attendance_id').notNullable();
     table.integer('service_id').notNullable();
 
-    table.foreign('user_attendance_id').references('id').inTable('user_attendances');
-    table.foreign('service_id').references('id').inTable('services');
+    table.foreign('user_attendance_id').references('id').inTable('user_attendances').onDelete('CASCADE');
+    table.foreign('service_id').references('id').inTable('services').onDelete('CASCADE');
   });
 }
 

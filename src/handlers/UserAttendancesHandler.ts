@@ -4,22 +4,23 @@ import Handler from "./Handler";
 import UserAttendance from "../core/models/UserAttendance";
 import UserAttendancesService from "../services/UserAttendancesService";
 import { makeResponse } from '../core/utils/ResponseUtils';
+import { Controller, Delete, Get, Post, Put, Req, Res } from '@nestjs/common';
 
+@Controller('api/core/users/:user_id')
 class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttendance> {
   constructor() {
     super(
       'user_attendance',
       new UserAttendancesService(),
       [
-        'attendance_id',
-        'user_id',
         'date',
         'services',
       ]
     );
   }
 
-  async index(request: Request, response: Response): Promise<Response> {
+  @Get('user-attendances')
+  async index(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { user_id } = request.params;
 
     if(!user_id.length) {
@@ -37,16 +38,15 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     );
   }
 
-  async add(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Post('attendances/:attendance_id/user-attendances')
+  async add(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
 
     const emptyFields = this.verifyFields(request.body);
 
-    if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body');
-    } else if(emptyFields.length) {
+    if(emptyFields.length) {
       return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
     }
 
@@ -64,30 +64,30 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     }
 
     const data: UserAttendance = this.improver.createT({
-      user_id,
-      attendance_id,
-      ...request.body
+      date: request.body['date']
     });
+
+    data.user_id = Number(user_id);
+    data.attendance_id = Number(attendance_id);
 
     return await this.execService(
       response,
       this.service.add,
       data,
-      request.body.services
+      request.body['services']
     );
   }
 
-  async update(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Put('attendances/:attendance_id/user-attendances/:id')
+  async update(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
 
     const emptyFields = this.verifyFields(request.body);
 
     if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body');
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
+      return makeResponse(response, 'bad-req', `one of ${emptyFields.join(', ')} fields are needed`);
     }
 
     const { id, user_id, attendance_id } = request.params;
@@ -105,21 +105,23 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     }
 
     const data: UserAttendance = this.improver.createT({
-      id: Number(id),
       user_id: Number(user_id),
       attendance_id: Number(attendance_id),
-      ...request.body
+      date: request.body['date']
     });
+
+    data.id = Number(id);
 
     return await this.execService(
       response,
       this.service.update,
       data,
-      request.body.services
+      request.body['services']
     );
   }
 
-  async delete(request: Request, response: Response): Promise<Response> {
+  @Delete('attendances/:attendance_id/user-attendances/:id')
+  async delete(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { id } = request.params;
 
     if(!id.length) {

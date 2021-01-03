@@ -9,7 +9,7 @@ import { Response } from 'express';
  */
 export function makeResponse(
   response: Response, status: string = 'bad-req',
-  data: any = null
+  data: any = undefined
 ) {
   if(!status.length) status = 'bad-req';
 
@@ -38,7 +38,7 @@ export function makeResponse(
 const statusCode: Record<string, number> = {
   'success': 200,
   'created': 201,
-  'no-data': 204,
+  'no-data': 400,
   'bad-req': 400,
   'unauthorized': 401,
   'not-found': 404,

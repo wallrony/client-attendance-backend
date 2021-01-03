@@ -1,3 +1,4 @@
+import { Controller, Get, Put, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 import Doctor from "../core/models/Doctor";
@@ -5,6 +6,7 @@ import { makeResponse } from '../core/utils/ResponseUtils';
 import DoctorsService from "../services/DoctorsService";
 import Handler from "./Handler";
 
+@Controller('/api/accounts/doctors')
 class DoctorsHandler extends Handler<DoctorsService, Doctor> {
   constructor() {
     super(
@@ -14,7 +16,8 @@ class DoctorsHandler extends Handler<DoctorsService, Doctor> {
     );
   }
 
-  async show(request: Request, response: Response): Promise<Response> {
+  @Get(':id')
+  async show(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { id } = request.params;
 
     if(!id.length) {
@@ -32,7 +35,8 @@ class DoctorsHandler extends Handler<DoctorsService, Doctor> {
     );
   }
 
-  async update(request: Request, response: Response): Promise<Response> {
+  @Put(':id')
+  async update(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { id } = request.params;
 
     if(!id.length) {
@@ -43,22 +47,21 @@ class DoctorsHandler extends Handler<DoctorsService, Doctor> {
       return makeResponse(response, '', `wrong ${this.entityName}_id param type`);
     }
 
-    if(!request.body.length) {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
 
     const emptyFields = this.verifyFields(request.body);
 
     if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body');
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
+      return makeResponse(response, 'bad-req', `one of ${emptyFields.join(', ')} fields are needed`);
     }
 
     const data: Doctor = this.improver.createT({
-      id: Number(id),
       ...request.body
     });
+
+    data.id = Number(id);
 
     return await this.execService(
       response,

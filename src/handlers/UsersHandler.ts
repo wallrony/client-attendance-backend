@@ -2,19 +2,22 @@ import { Request, Response } from 'express';
 
 import Handler from "./Handler";
 import User from "../core/models/User";
-import UserService from "../services/UserService";
+import UsersService from "../services/UsersService";
 import { makeResponse } from "../core/utils/ResponseUtils";
+import { Controller, Get, Put, Req, Res } from '@nestjs/common';
 
-class UsersHandler extends Handler<UserService, User> {
+@Controller('/api/accounts/users')
+class UsersHandler extends Handler<UsersService, User> {
   constructor() {
     super(
       'user',
-      new UserService(),
+      new UsersService(),
       ['name', 'email', 'password', 'birthday'],
     );
   }
 
-  async show(request: Request, response: Response): Promise<Response> {
+  @Get(':id')
+  async show(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { id } = request.params;
 
     if(!id.length) {
@@ -32,17 +35,16 @@ class UsersHandler extends Handler<UserService, User> {
     );
   }
 
-  async update(request: Request, response: Response): Promise<Response> {
-    if(!request.body.length) {
+  @Put(':id')
+  async update(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
     }
 
     const emptyFields = this.verifyFields(request.body);
 
     if(emptyFields.length === this.mFieldsLenght) {
-      return makeResponse(response, 'no-data', 'need data in request body');
-    } else if(emptyFields.length) {
-      return makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
+      return makeResponse(response, 'bad-req', `one of ${emptyFields.join(', ')} fields are needed`);
     }
 
     const { id } = request.params;
@@ -56,9 +58,10 @@ class UsersHandler extends Handler<UserService, User> {
     }
 
     const data = this.improver.createT({
-      id: Number(id),
       ...request.body
     });
+
+    data.id = id;
 
     return await this.execService(
       response,
