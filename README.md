@@ -40,3 +40,7 @@ knex *: por padrão, nesse projeto, foi inserida a configuração de client do k
 ## Database (Banco de Dados)
 
 O banco de dados utilizado foi o PostgreSQL para manter uma comunicação entre entidades de forma relacional, o que torna a interpretação de dados semanticamente mais simples e clara.
+
+Seu diagrama de entidades relacionadas segue da mesma forma que o print abaixo:
+
+![](ilustration_images/bcdd_diagram.png)
