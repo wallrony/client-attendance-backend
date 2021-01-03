@@ -1636,6 +1636,11 @@
         "signature": "088d420a09a36d241f1ddbdcb553951c02ef0844014727a29712d2ced57edd22",
         "affectsGlobalScope": false
       },
+      "../src/core/models/FreePath.ts": {
+        "version": "fbb64a87a3d4d56057a87cd5f47e6ccba038f33aa707501aa7b618ee1ac21130",
+        "signature": "9a19b015a3aac7a3b1e59520d3e54f50b4075bb30f2f79abe08cac00627865a7",
+        "affectsGlobalScope": false
+      },
       "../src/core/models/Model.ts": {
         "version": "edbeff3d17de07f32ea79480b16e187c7f679dbb105b42a7421dfb21e96de3fa",
         "signature": "c6d0360b1d34ca4b80021ca34ac55f587b7396b9ad97173dae585407a77fed86",
@@ -1722,8 +1727,8 @@
         "affectsGlobalScope": false
       },
       "../src/middlewares/AuthMiddleware.ts": {
-        "version": "3de1010a9b0b2d70d60440534384c694905e258b8b7611a9f31562877fbde3e1",
-        "signature": "0255304330efc59eaea314c94fb7c9982893014e9a188ba678d7c080b98b33ec",
+        "version": "897f63418f7d1b3bcb6c5ba0f6bf3e57b9597fbd3602a1a5596fef655d853f2f",
+        "signature": "de086113295d9ba898fbfd647ec55763610d5b9660847a565f726fc406b7bc1e",
         "affectsGlobalScope": false
       },
       "../src/core/improvers/Improver.ts": {
@@ -4065,6 +4070,7 @@
       "../src/middlewares/AuthMiddleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
+        "../src/core/models/FreePath.ts",
         "../src/core/models/User.ts",
         "../src/core/utils/ResponseUtils.ts",
         "../src/core/utils/TokenUtils.ts",
@@ -5748,7 +5754,8 @@
       ],
       "../src/middlewares/AuthMiddleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/express/index.d.ts"
+        "../node_modules/@types/express/index.d.ts",
+        "../src/core/models/FreePath.ts"
       ],
       "../src/routers/Router.ts": [
         "../node_modules/@types/express/index.d.ts",
@@ -6256,6 +6263,7 @@
       "../src/core/models/AuthorizedUser.ts",
       "../src/core/models/Commission.ts",
       "../src/core/models/Doctor.ts",
+      "../src/core/models/FreePath.ts",
       "../src/core/models/Model.ts",
       "../src/core/models/Service.ts",
       "../src/core/models/ServiceResponse.ts",

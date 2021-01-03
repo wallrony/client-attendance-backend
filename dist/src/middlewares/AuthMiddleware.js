@@ -8,12 +8,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthMiddleware = void 0;
 const common_1 = require("@nestjs/common");
+const FreePath_1 = require("../core/models/FreePath");
 const User_1 = require("../core/models/User");
 const ResponseUtils_1 = require("../core/utils/ResponseUtils");
 const TokenUtils_1 = require("../core/utils/TokenUtils");
 const Connection_1 = require("../data/database/Connection");
 let AuthMiddleware = class AuthMiddleware {
+    constructor() {
+        this.freePaths = [
+            {
+                path: '/attendances',
+                method: 'GET'
+            }
+        ];
+    }
     async use(request, response, next) {
+        let isFreePath = false;
+        for (const freePath of this.freePaths) {
+            if (freePath.path === request.path && freePath.method === request.method) {
+                isFreePath = true;
+                break;
+            }
+        }
+        if (isFreePath) {
+            return next();
+        }
         const authorization = request.headers['authorization'];
         if (!authorization || !authorization.length) {
             return ResponseUtils_1.makeResponse(response, '', 'need authorization token');
