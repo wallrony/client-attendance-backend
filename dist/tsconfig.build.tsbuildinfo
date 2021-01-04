@@ -1797,7 +1797,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/AttendancesDAO.ts": {
-        "version": "2c99354f6838c89682ba57c99d00cb4004d5b1378482683fcb8db93a52621f4a",
+        "version": "13927f026cdcf0e69c0dd81ca8e70dd8fed37c6dab2cded3b93653ad00cb4cc9",
         "signature": "d88f1022d9d46b03645a27be2b3934cf3ff29376bdd3d22a3135060fa2045b8b",
         "affectsGlobalScope": false
       },
@@ -1907,7 +1907,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/AuthService.ts": {
-        "version": "febac9c6c954209d2015fc78146a386fb8376864a17ae9375cc64e3fc554eea5",
+        "version": "71b5ad691f081ea0d7eaf5fca3818d01ad646bc380acce4a8102434dbcc2511c",
         "signature": "9fe05a3a0e90bf1b7d71cdabbfae16b72dd969ec5dacfa69e95b1f9aef6e90f6",
         "affectsGlobalScope": false
       },
@@ -3861,6 +3861,7 @@
       ],
       "../src/data/dao/AttendancesDAO.ts": [
         "../src/core/models/Attendance.ts",
+        "../src/core/models/Service.ts",
         "../src/core/utils/GeneralUtils.ts",
         "../src/data/dao_interfaces/IAttendancesDAO.ts",
         "../src/data/database/Connection.ts"

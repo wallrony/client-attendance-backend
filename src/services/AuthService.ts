@@ -20,7 +20,6 @@ class AuthService extends Service {
       result.data.user = await FacadeInstance().login(credentials);
       result.data.auth_token = createToken(result.data.user.id);
     } catch (e) {
-      console.log(e)
       result.err = e;
     }
 
@@ -33,7 +32,6 @@ class AuthService extends Service {
     try {
       result.data = await FacadeInstance().register(data);
     } catch (e) {
-      console.log(e)
       result.err = e;
     }
 

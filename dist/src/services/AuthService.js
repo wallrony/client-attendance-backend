@@ -13,7 +13,6 @@ class AuthService extends Service_1.default {
             result.data.auth_token = TokenUtils_1.createToken(result.data.user.id);
         }
         catch (e) {
-            console.log(e);
             result.err = e;
         }
         return result;
@@ -24,7 +23,6 @@ class AuthService extends Service_1.default {
             result.data = await Facade_1.default().register(data);
         }
         catch (e) {
-            console.log(e);
             result.err = e;
         }
         return result;

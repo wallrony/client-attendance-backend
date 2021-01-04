@@ -1,3 +1,4 @@
+import Service from "src/core/models/Service";
 import Attendance from "../../core/models/Attendance";
 import { createError } from "../../core/utils/GeneralUtils";
 import IAttendancesDAO from "../dao_interfaces/IAttendancesDAO";
@@ -9,6 +10,16 @@ class AttendancesDAO extends IAttendancesDAO {
 
     const rows = await connection<Attendance>(this.tableName)
       .select('*');
+
+    for(let i = 0 ; i < rows.length; i++) {
+      const attendance_id = rows[i].id;
+
+      const services = await connection<Service>('services')
+        .select('id', 'name', 'description', 'duration', 'price')
+        .where('attendance_id', '=', attendance_id);
+
+      rows[i]['services'] = services;
+    }
 
     await connection.destroy();
 
