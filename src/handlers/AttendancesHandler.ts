@@ -38,6 +38,10 @@ class AttendancesHandler extends Handler<AttendancesService, Attendance> {
 
     const data = this.improver.createT(request.body);
 
+    if(request.body['services']) {
+      data.services = request.body['services'];
+    }
+
     return await this.execService(
       response,
       this.service.add,

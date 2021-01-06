@@ -20,6 +20,7 @@ class DoctorsDAO extends IDoctorDAO {
     }
 
     delete row['id'];
+    delete row['password'];
 
     return row;
   }

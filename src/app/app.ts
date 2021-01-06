@@ -5,6 +5,7 @@ async function createApp() {
   const app = await NestFactory.create(AppModule)
 
   // Nest app configuration
+  app.enableCors();
 
   return app;
 }

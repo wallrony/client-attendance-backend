@@ -14,6 +14,7 @@ class CommissionsService extends Service {
     try {
       result.data = await FacadeInstance().indexCommissions(doctorId);
     } catch(e) {
+      console.log(e)
       result.err = e;
     }
 

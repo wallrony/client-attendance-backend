@@ -6,9 +6,10 @@ export async function up(knex: Knex) {
     table.integer('doctor_id').notNullable();
     table.integer('client_attendance_id').notNullable();
     table.decimal('value').notNullable();
+    table.timestamp('date').notNullable();
 
-    table.foreign('doctor_id').references('id').inTable('doctors');
-    table.foreign('client_attendance_id').references('id').inTable('users');
+    table.foreign('doctor_id').references('id').inTable('doctors').onDelete('CASCADE');
+    table.foreign('client_attendance_id').references('id').inTable('users').onDelete('CASCADE');
   })
 }
 

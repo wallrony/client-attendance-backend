@@ -7,23 +7,45 @@ class CommissionsDAO extends ICommissionsDAO_1.default {
     async index(doctorId) {
         const connection = Connection_1.createConnection();
         const rows = await connection(this.tableName)
-            .select('*')
-            .where('doctor_id', '=', String(doctorId));
-        await connection.destroy();
+            .select(`${this.tableName}.id`, `${this.tableName}.value`, `${this.tableName}.date`, `${this.tableName}.doctor_id`, `${this.tableName}.client_attendance_id`, 'attendances.title')
+            .innerJoin('user_attendances', 'user_attendances.id', '=', `${this.tableName}.client_attendance_id`)
+            .innerJoin('attendances', 'attendances.id', '=', 'user_attendances.attendance_id')
+            .where(`${this.tableName}.doctor_id`, '=', String(doctorId));
         if (!rows) {
             throw GeneralUtils_1.createError('not-found', `${this.entityName} not found`);
         }
+        for (const row of rows) {
+            const secondRow = await connection('services')
+                .select('services.name', 'services.duration')
+                .innerJoin('user_attendance_services', 'user_attendance_services.service_id', '=', 'services.id')
+                .innerJoin('user_attendances', 'user_attendances.id', '=', 'user_attendance_services.user_attendance_id')
+                .where('user_attendances.id', '=', row['client_attendance_id']);
+            row['services'] = secondRow;
+        }
+        await connection.destroy();
         return rows;
     }
     async add(data) {
         const connection = Connection_1.createConnection();
-        const row = await connection(this.tableName)
-            .insert(data)
+        const actualDate = new Date();
+        const date = `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}T${actualDate.getHours()}-${actualDate.getMinutes()}-${actualDate.getSeconds()}.000Z`;
+        const trx = await connection.transaction();
+        const row = await trx(this.tableName)
+            .insert(Object.assign(Object.assign({}, data), { date }))
             .returning('*');
-        await connection.destroy();
         if (!row) {
             throw GeneralUtils_1.createError('internal-error', `error-inserting-${this.entityName}`);
         }
+        const secondRow = await trx('user_attendances')
+            .update({
+            'realized': true,
+        }).where('id', '=', data.client_attendance_id);
+        if (!secondRow) {
+            throw GeneralUtils_1.createError('internal-error', `error-inserting-${this.entityName}`);
+        }
+        await trx.commit();
+        await trx.destroy();
+        await connection.destroy();
         return row[0];
     }
 }

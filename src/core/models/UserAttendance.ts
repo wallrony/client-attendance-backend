@@ -6,4 +6,6 @@ export default interface UserAttendance extends Model {
   user_id: number;
   date: string;
   services?: number[];
+  status?: 'not-realized' | 'in-progress' | 'realized';
+  doctor_id?: number;
 }

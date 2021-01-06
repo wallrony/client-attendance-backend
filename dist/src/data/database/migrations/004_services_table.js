@@ -9,7 +9,7 @@ async function up(knex) {
         table.string('description').notNullable();
         table.decimal('price').notNullable();
         table.decimal('duration').notNullable();
-        table.foreign('attendance_id').references('id').inTable('attendances');
+        table.foreign('attendance_id').references('id').inTable('attendances').onDelete('CASCADE');
     });
 }
 exports.up = up;

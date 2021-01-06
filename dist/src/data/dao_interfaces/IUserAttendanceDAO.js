@@ -5,6 +5,9 @@ class IUserAttendanceDAO extends IDAO_1.default {
     constructor() {
         super('user-attendance', 'user_attendances');
     }
+    indexAll(doctor_id) {
+        throw ('You have to implement this method.');
+    }
     index(attendanceID) {
         throw ('You have to implement this method.');
     }

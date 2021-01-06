@@ -30,6 +30,7 @@ class AttendancesService extends Service {
     try {
       result.data = await FacadeInstance().addAttendance(data);
     } catch(e) {
+      console.log(e)
       result.err = e;
     }
 
@@ -54,6 +55,7 @@ class AttendancesService extends Service {
     try {
       result.data = await FacadeInstance().deleteAttendance(id);
     } catch(e) {
+      console.log(e)
       result.err = e;
     }
 

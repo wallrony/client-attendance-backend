@@ -10,6 +10,18 @@ import Service from "./Service";
  * @method delete(id)
  */
 class UserAttendancesService extends Service {
+  async indexAll(doctor_id: number): Promise<ServiceResponse<UserAttendance[]>> {
+    const result: ServiceResponse<UserAttendance[]> = {};
+
+    try {
+      result.data = await FacadeInstance().indexAllUserAttendances(doctor_id);
+    } catch(e) {
+      result.err = e;
+    }
+
+    return result;
+  }
+
   async index(userID: number): Promise<ServiceResponse<UserAttendance[]>> {
     const result: ServiceResponse<UserAttendance[]> = {};
 
@@ -40,7 +52,6 @@ class UserAttendancesService extends Service {
     try {
       result.data = await FacadeInstance().updateUserAttendance(data, services)
     } catch(e) {
-      console.log(e)
       result.err = e;
     }
 

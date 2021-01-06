@@ -33,10 +33,36 @@ class AttendancesDAO extends IAttendancesDAO {
   async add(data: Attendance): Promise<Attendance> {
     const connection = createConnection();
 
-    const row = await connection(this.tableName)
+    const serviceList = data['services'];
+
+    delete data['services'];
+
+    const trx = await connection.transaction();
+
+    const row = await trx(this.tableName)
       .insert(data)
       .returning<Attendance>('*');
 
+    if(serviceList) {
+      const services = [];
+
+      for(const service of serviceList) {
+        const loopRow = await trx('services')
+          .insert({
+            ...service,
+            attendance_id: row[0]['id'],
+          })
+          .returning('*');
+
+        services.push(loopRow[0])
+      }
+
+      row[0]['services'] = services;
+    }
+
+    await trx.commit();
+
+    await trx.destroy();
     await connection.destroy();
 
     if(!row[0]['id']) {

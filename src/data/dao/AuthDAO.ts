@@ -18,7 +18,7 @@ class AuthDAO extends IAuthDAO {
     await connection.destroy();
 
     if(!row) {
-      throw createError("not-found", `${this.entityName} not found`);
+      throw createError('invalid-credentials', 'these credentials are invalid');
     }
 
     delete row['password'];

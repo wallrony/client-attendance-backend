@@ -31,6 +31,7 @@ declare class Facade {
     addService(data: Service): Promise<Service>;
     updateService(data: Service): Promise<Service>;
     deleteService(id: number): Promise<boolean>;
+    indexAllUserAttendances(doctor_id: number): Promise<UserAttendance[]>;
     indexUserAttendances(attendanceID: number): Promise<UserAttendance[]>;
     addUserAttendance(data: UserAttendance, services: number[]): Promise<UserAttendance>;
     updateUserAttendance(data: UserAttendance, services: any): Promise<UserAttendance>;

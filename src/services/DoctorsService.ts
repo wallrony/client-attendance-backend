@@ -14,7 +14,6 @@ class DoctorsService extends Service {
     try {
       result.data = await FacadeInstance().showDoctor(id);
     } catch(e) {
-      console.log(e);
       result.err = e;
     }
 
@@ -27,7 +26,6 @@ class DoctorsService extends Service {
     try {
       result.data = await FacadeInstance().updateDoctor(data);
     } catch(e) {
-      console.log(e)
       result.err = e;
     }
 

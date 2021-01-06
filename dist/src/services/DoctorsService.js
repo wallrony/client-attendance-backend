@@ -9,7 +9,6 @@ class DoctorsService extends Service_1.default {
             result.data = await Facade_1.default().showDoctor(id);
         }
         catch (e) {
-            console.log(e);
             result.err = e;
         }
         return result;
@@ -20,7 +19,6 @@ class DoctorsService extends Service_1.default {
             result.data = await Facade_1.default().updateDoctor(data);
         }
         catch (e) {
-            console.log(e);
             result.err = e;
         }
         return result;

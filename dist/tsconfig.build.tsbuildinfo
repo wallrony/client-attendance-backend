@@ -1652,7 +1652,7 @@
         "affectsGlobalScope": false
       },
       "../src/core/utils/ResponseUtils.ts": {
-        "version": "13df675fe1432ea71d8aa76cc5fdf13ac9b08024eae72f0a7aa8d566bbedf1d8",
+        "version": "3325f9d4df7c3919c344b0b2e45714e37865dff347f6ffe559baab3d0feb07ce",
         "signature": "42c70c575133b5e42a6a0a2332cb6b078bc13fc00ac758a92d509e79387e442d",
         "affectsGlobalScope": false
       },
@@ -1762,8 +1762,8 @@
         "affectsGlobalScope": false
       },
       "../src/core/models/Commission.ts": {
-        "version": "0cd7a84a96e0baa25fc7d136753060502ecf5b6f1e0c962f6239e606b24daa89",
-        "signature": "c344847ab4388f52d2618be12a5f74bb2159f104f873687f429824eb2eca81f8",
+        "version": "4328eae441a29732e939ae4a927ee92148174e0d3ffd2b933582b1df3eaabd35",
+        "signature": "14697f0c356ed02b43a7d0f2b9a142ad6e9e7d7ddd7de31b4c61818af97ba83a",
         "affectsGlobalScope": false
       },
       "../src/core/models/Doctor.ts": {
@@ -1777,8 +1777,8 @@
         "affectsGlobalScope": false
       },
       "../src/core/models/UserAttendance.ts": {
-        "version": "5c3c740592628f33d848e5917af72ca51cb8bad529137dc22f206dc77c3fbd8e",
-        "signature": "2603680bd0a1522098c63c89df929b6050f65dae8990ca4cb1aa5632f07da1fd",
+        "version": "e1987b664095c6f3f7b7fffaeb516eed823b50ed21d6b8b16e73978ee51a01ba",
+        "signature": "615c0d8b7f1b07980e92d32c4b50bd3413af9fff59529f36eac614129bfe28ed",
         "affectsGlobalScope": false
       },
       "../src/core/utils/GeneralUtils.ts": {
@@ -1797,7 +1797,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/AttendancesDAO.ts": {
-        "version": "13927f026cdcf0e69c0dd81ca8e70dd8fed37c6dab2cded3b93653ad00cb4cc9",
+        "version": "95445cc0ec9202d0c46d90eac77e60322ad10dc1a07fc32f5b3508857f505b81",
         "signature": "d88f1022d9d46b03645a27be2b3934cf3ff29376bdd3d22a3135060fa2045b8b",
         "affectsGlobalScope": false
       },
@@ -1812,7 +1812,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/AuthDAO.ts": {
-        "version": "628d11fabb8bdd2868626fd4eff4a43cd2c9289bb4de1d15aefa093a568d687c",
+        "version": "0c301802dd1b8ca3307775d61a80b5d45f8cf360ba613fd04ff0d3a0a7a8e68f",
         "signature": "bb3f713b82ca2cd9647ab7cc6a6f87d3d435ec4eac4d420acb906f3daff420b0",
         "affectsGlobalScope": false
       },
@@ -1822,7 +1822,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/CommissionsDAO.ts": {
-        "version": "d8b7ba0129c7795433b6e6061fb23e6807910bae0986b37dba51a842739cdf3d",
+        "version": "ab826356a8fbbcbf214b40fa0e8c3497d408f7366aa1b76344e87b08ca200686",
         "signature": "2abafad2455fe555074fc8e3a9d74ef4baf2c63e2086740a451957c198d5b183",
         "affectsGlobalScope": false
       },
@@ -1832,7 +1832,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/DoctorAuthDAO.ts": {
-        "version": "a20e846249e573d582c0790a63ffebd2e785d39d9378a6ec1f7bd0a093c2592d",
+        "version": "45ee49b1a1fd86f939879f3f3900edf9b191a016f64c68a5ff7d25f14e2b3839",
         "signature": "440cd429ec3be265703d924a2554c67ce0545710e9628376707c38b5d6ffc819",
         "affectsGlobalScope": false
       },
@@ -1842,7 +1842,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/DoctorsDAO.ts": {
-        "version": "fe47b6320aa0f76b2b0268b47e9685d552c7c189a5c6fd4eef7f8da136e94d97",
+        "version": "5c4ff1baa5f1766cfc45150833318820e7926d92f5be3aa7d69229e69b6c9b6d",
         "signature": "65cc4435b7f55eaa988b42e2ab3cd161cf5ca5058219958bea7ed5d90024e022",
         "affectsGlobalScope": false
       },
@@ -1862,13 +1862,13 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao_interfaces/IUserAttendanceDAO.ts": {
-        "version": "899065c8865c89270b5f49d96c76769576d237fd637ceb785bab48d15d403aef",
-        "signature": "3048fca0626bd0b2ad18d541e27f0721b8b0078428e9d6633b175687f720d75a",
+        "version": "dde065f066246515d3f8e5b828141ac1dbb9d064ea64b0403543922f6b12f8af",
+        "signature": "2f4d82c7ab5997c545c905475cb4669ff34aa38f229a3eb63056485c9633d34c",
         "affectsGlobalScope": false
       },
       "../src/data/dao/UserAttendancesDAO.ts": {
-        "version": "f6f537e1c1bf3febac3b3b0606a364dceddc182238763c393e3a886b0f7a4b53",
-        "signature": "450888e83faa4579f6d1541b16a376a753ed71b7cbcb910f0dc4a49724b4fdf1",
+        "version": "6da41370dcf184e0d9cb913ef6b1216c64bf72b812975d3e46906adeb141cfa5",
+        "signature": "024c2e90ae39f32127e14d61b4ee607cf786a525ab30c30f45dc14fea4d25d3b",
         "affectsGlobalScope": false
       },
       "../src/data/dao_interfaces/IUserDAO.ts": {
@@ -1877,22 +1877,22 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/UsersDAO.ts": {
-        "version": "e736e2bd8a7016a2d39a988978df05f34dd693029bd4d9773dba0e4a34d2afa6",
+        "version": "2394e7c85c634e17c79bddb65e39c91b29f6714473c0c54b725875fa1a253f2e",
         "signature": "7f52ff676b0a6f17886158b3e3070fd33fe1a0ab2118d4fd18726f655338d935",
         "affectsGlobalScope": false
       },
       "../src/data/Facade.ts": {
-        "version": "dba58ce2bc2c2684ecccfa33e8fa2e002b6ffa1ac516d76e7eaf79e6efbacf8f",
-        "signature": "246a71257e3c3912cbd4ca33159e3e6d818588470adb8b8f5cd5ce87ab67044d",
+        "version": "511f7f158a0ce9a141e10989893b7a71206a5d6c22c352d5e762444781b5c70a",
+        "signature": "c424a4d4a620936e5f817cce29d926a224c659f59cf0f5d2c36780a40e1c7af1",
         "affectsGlobalScope": false
       },
       "../src/services/AttendancesService.ts": {
-        "version": "a1a59809f2e6d139c4d5b46f19b4d13f28eb3e8386208955c5f70a4dbe087723",
+        "version": "3f950d7ce10883fdb5856461ab46678f7531860bf6a163a27e9933f8253e1aa8",
         "signature": "4030985a77c227cd1a9d4a85dc70940c50bbdbeda083fe0f8a00b44b44be5315",
         "affectsGlobalScope": false
       },
       "../src/handlers/AttendancesHandler.ts": {
-        "version": "6d3deaafc31b2148f5c9c6517b628b68c4e437d932df737e9cbd47f0bf1776e4",
+        "version": "c492e02030d7a12706a2e5c742086d495602ec4356f19491e1cbc707c74501b5",
         "signature": "4d47dd977dc24e1a8081b38a07957965ce8aa2e62691ffb26d5802fc7c7c1e30",
         "affectsGlobalScope": false
       },
@@ -1922,7 +1922,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/CommissionsService.ts": {
-        "version": "2bce416541f88e0c8a5036d4c1203edc32b10a8b9e89967601896538b66ce45d",
+        "version": "d098ee66f42b27d39222717544a1e596aa9613f9265b81616bdf1ccd35e71dc6",
         "signature": "2b2dca2d48926750a420e63c3c4601944dc9cb6936475123377e3e412ed7c655",
         "affectsGlobalScope": false
       },
@@ -1952,7 +1952,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/DoctorsService.ts": {
-        "version": "658d2916f93f0879b9af1b259a42416ec6ee3b47377e8f48e27bb8f31eabb404",
+        "version": "cb2ebbc92b0aaf4b4081f1d15d9788954a82eb40ea7ac3a90239ec493699bb32",
         "signature": "1c1a906ef5b2e96c7133d227535ec7ed65366fc66adac774582c353ddb7335c1",
         "affectsGlobalScope": false
       },
@@ -1982,13 +1982,13 @@
         "affectsGlobalScope": false
       },
       "../src/services/UserAttendancesService.ts": {
-        "version": "62106e1a3ce357b9344260d97765ef53329b45e074d960ddf1f099a0e1ab96d2",
-        "signature": "5fa50ab3bbe5ca176884883574c36685430fba7c6791c9b76d2f802c40d9945e",
+        "version": "8ac4a5804acbbcbaff34db7b697ad2cfd3a3c96aaa97d8cd6d740397fdb341ae",
+        "signature": "9f0047ef11a65898bf7c97ccf4c8ccbfb63ff2f3ecff6ca227a157459be6ff71",
         "affectsGlobalScope": false
       },
       "../src/handlers/UserAttendancesHandler.ts": {
-        "version": "7129513f738b4b250f03450aab1c24b595999e1ba32f4c095b0dae0d3a9d5181",
-        "signature": "90936a41a5b8f02e94dcbae86e8d32af3d404fa8168ed2df112035bca5575566",
+        "version": "9f86ff07c3b8d4bb015a57e053face62d359a3694b5c02bf2474c848a1ed3e35",
+        "signature": "3d739233db3b9888115d4486701f7de24c043b2f87b2664fcf5d684794128732",
         "affectsGlobalScope": false
       },
       "../src/modules/user.attendances.module.ts": {
@@ -2017,7 +2017,7 @@
         "affectsGlobalScope": false
       },
       "../src/app/app.ts": {
-        "version": "cbffc53a172d59e02951dd56ba43fe889f73f7ad38c2009f54cd8c1744389332",
+        "version": "6a1457b0fa05ebbb99b473f78a6a53c62140285b40c58c30dfe5663653c03482",
         "signature": "dd487e40a9f5bbbeb6f661a3dba04d4c0890aacfeb35d35313a4d87d9b7ebcf6",
         "affectsGlobalScope": false
       },
@@ -2052,12 +2052,12 @@
         "affectsGlobalScope": false
       },
       "../src/data/database/migrations/003_user_attendances_table.ts": {
-        "version": "7f4f6c81c9ee538bfaebbc0c4afd389756e1744d4e7d858796f316d49c40f961",
+        "version": "e65d30e96442ffd72e05d9dc7cb78498bc484265a380e77ac80e6c7cf81351a3",
         "signature": "f8a3ed51fe7397637e02710ea24be86fc48118a9a28acae0142c75a244056641",
         "affectsGlobalScope": false
       },
       "../src/data/database/migrations/004_services_table.ts": {
-        "version": "50212a374d692a12605fecd6e6904735054fecfa7d9ae48318e3c8152b4a5e16",
+        "version": "b12d279a49dd712970172982f3035d12d306fa0ca4d57b3cf10eefbcb8c9454e",
         "signature": "f8a3ed51fe7397637e02710ea24be86fc48118a9a28acae0142c75a244056641",
         "affectsGlobalScope": false
       },
@@ -2067,7 +2067,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/database/migrations/006_commissions_table.ts": {
-        "version": "6e7f9095bce220813eb169a831dfe04545f8606bff6df0584e3821a7aad5b50e",
+        "version": "f4accfdc0bc1f9c1d7bce67ad234e6a71751128cbb39811abcdf82f0fc9d4283",
         "signature": "f8a3ed51fe7397637e02710ea24be86fc48118a9a28acae0142c75a244056641",
         "affectsGlobalScope": false
       },
@@ -2088,6 +2088,21 @@
       },
       "../src/data/database/seeds/003_services.ts": {
         "version": "92cc82c2fcb30dc2b6f765f66aa4df5616e37fe58fdd50270a292db8500e16a4",
+        "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
+        "affectsGlobalScope": false
+      },
+      "../src/data/database/seeds/004_user_attendances.ts": {
+        "version": "4e363bbdb59fb771747649d27363b2f101aa97e0639bb4753c90459656f9feb3",
+        "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
+        "affectsGlobalScope": false
+      },
+      "../src/data/database/seeds/005_user_attendance_services.ts": {
+        "version": "2087d3519d48c8e0b5290e2091e1d5f23331941e850587277467d7bf1958eec3",
+        "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
+        "affectsGlobalScope": false
+      },
+      "../src/data/database/seeds/006_commissions.ts": {
+        "version": "72a5d820d2060276649a038a24789576d403f2768f7d6b862559c75753edd640",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
@@ -3902,6 +3917,7 @@
         "../src/data/database/Connection.ts"
       ],
       "../src/data/dao/UserAttendancesDAO.ts": [
+        "../src/core/models/Service.ts",
         "../src/core/models/UserAttendance.ts",
         "../src/core/models/UserAttendanceService.ts",
         "../src/core/utils/GeneralUtils.ts",
@@ -3990,6 +4006,18 @@
       "../src/data/database/seeds/003_services.ts": [
         "../node_modules/knex/types/index.d.ts",
         "../src/core/models/Service.ts"
+      ],
+      "../src/data/database/seeds/004_user_attendances.ts": [
+        "../node_modules/knex/types/index.d.ts",
+        "../src/core/models/UserAttendance.ts"
+      ],
+      "../src/data/database/seeds/005_user_attendance_services.ts": [
+        "../node_modules/knex/types/index.d.ts",
+        "../src/core/models/UserAttendanceService.ts"
+      ],
+      "../src/data/database/seeds/006_commissions.ts": [
+        "../node_modules/knex/types/index.d.ts",
+        "../src/core/models/Commission.ts"
       ],
       "../src/handlers/AttendancesHandler.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -5700,6 +5728,15 @@
       "../src/data/database/seeds/003_services.ts": [
         "../node_modules/knex/types/index.d.ts"
       ],
+      "../src/data/database/seeds/004_user_attendances.ts": [
+        "../node_modules/knex/types/index.d.ts"
+      ],
+      "../src/data/database/seeds/005_user_attendance_services.ts": [
+        "../node_modules/knex/types/index.d.ts"
+      ],
+      "../src/data/database/seeds/006_commissions.ts": [
+        "../node_modules/knex/types/index.d.ts"
+      ],
       "../src/handlers/AttendancesHandler.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/core/models/Attendance.ts",
@@ -6307,6 +6344,9 @@
       "../src/data/database/seeds/001_attendances.ts",
       "../src/data/database/seeds/002_doctors.ts",
       "../src/data/database/seeds/003_services.ts",
+      "../src/data/database/seeds/004_user_attendances.ts",
+      "../src/data/database/seeds/005_user_attendance_services.ts",
+      "../src/data/database/seeds/006_commissions.ts",
       "../src/handlers/AttendancesHandler.ts",
       "../src/handlers/AuthHandler.ts",
       "../src/handlers/CommissionsHandler.ts",

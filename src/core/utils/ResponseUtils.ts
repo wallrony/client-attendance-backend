@@ -47,6 +47,7 @@ const statusCode: Record<string, number> = {
   'created': 201,
   'no-data': 400,
   'bad-req': 400,
+  'invalid-credentials': 401,
   'unauthorized-user': 401,
   'not-found': 404,
   'internal-error': 500

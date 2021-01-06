@@ -113,6 +113,10 @@ class Facade {
   }
 
   // UserAttendancesDAO Methods
+  async indexAllUserAttendances(doctor_id: number): Promise<UserAttendance[]> {
+    return await this.userAttendancesDAO.indexAll(doctor_id);
+  }
+
   async indexUserAttendances(attendanceID: number): Promise<UserAttendance[]> {
     return await this.userAttendancesDAO.index(attendanceID);
   }

@@ -27,6 +27,7 @@ let AttendancesService = class AttendancesService extends Service_1.default {
             result.data = await Facade_1.default().addAttendance(data);
         }
         catch (e) {
+            console.log(e);
             result.err = e;
         }
         return result;
@@ -47,6 +48,7 @@ let AttendancesService = class AttendancesService extends Service_1.default {
             result.data = await Facade_1.default().deleteAttendance(id);
         }
         catch (e) {
+            console.log(e);
             result.err = e;
         }
         return result;

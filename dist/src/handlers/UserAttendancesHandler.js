@@ -23,6 +23,19 @@ let UserAttendancesHandler = class UserAttendancesHandler extends Handler_1.defa
             'services',
         ]);
     }
+    async indexAll(request, response) {
+        const { doctor_id } = request.params;
+        if (!doctor_id.length) {
+            return ResponseUtils_1.makeResponse(response, '', `need doctor id param`);
+        }
+        try {
+            Number(doctor_id);
+        }
+        catch (_a) {
+            return ResponseUtils_1.makeResponse(response, '', `wrong doctor id param type`);
+        }
+        return await this.execService(response, this.service.indexAll, Number(doctor_id));
+    }
     async index(request, response) {
         const { user_id } = request.params;
         if (!user_id.length) {
@@ -105,35 +118,42 @@ let UserAttendancesHandler = class UserAttendancesHandler extends Handler_1.defa
     }
 };
 __decorate([
-    common_1.Get('user-attendances'),
+    common_1.Get('user-attendances/:doctor_id/all'),
+    __param(0, common_1.Req()), __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserAttendancesHandler.prototype, "indexAll", null);
+__decorate([
+    common_1.Get('users/:user_id/user-attendances'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserAttendancesHandler.prototype, "index", null);
 __decorate([
-    common_1.Post('attendances/:attendance_id/user-attendances'),
+    common_1.Post('users/:user_id/attendances/:attendance_id/user-attendances'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserAttendancesHandler.prototype, "add", null);
 __decorate([
-    common_1.Put('attendances/:attendance_id/user-attendances/:id'),
+    common_1.Put('users/:user_id/attendances/:attendance_id/user-attendances/:id'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserAttendancesHandler.prototype, "update", null);
 __decorate([
-    common_1.Delete('attendances/:attendance_id/user-attendances/:id'),
+    common_1.Delete('user-attendances/:id'),
     __param(0, common_1.Req()), __param(1, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserAttendancesHandler.prototype, "delete", null);
 UserAttendancesHandler = __decorate([
-    common_1.Controller('api/core/users/:user_id'),
+    common_1.Controller('api/core/'),
     __metadata("design:paramtypes", [])
 ], UserAttendancesHandler);
 exports.default = UserAttendancesHandler;

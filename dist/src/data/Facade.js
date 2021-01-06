@@ -67,6 +67,9 @@ class Facade {
     async deleteService(id) {
         return await this.servicesDAO.delete(id);
     }
+    async indexAllUserAttendances(doctor_id) {
+        return await this.userAttendancesDAO.indexAll(doctor_id);
+    }
     async indexUserAttendances(attendanceID) {
         return await this.userAttendancesDAO.index(attendanceID);
     }

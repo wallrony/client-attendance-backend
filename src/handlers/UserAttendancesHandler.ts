@@ -6,7 +6,7 @@ import UserAttendancesService from "../services/UserAttendancesService";
 import { makeResponse } from '../core/utils/ResponseUtils';
 import { Controller, Delete, Get, Post, Put, Req, Res } from '@nestjs/common';
 
-@Controller('api/core/users/:user_id')
+@Controller('api/core/')
 class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttendance> {
   constructor() {
     super(
@@ -19,7 +19,26 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     );
   }
 
-  @Get('user-attendances')
+  @Get('user-attendances/:doctor_id/all')
+  async indexAll(@Req() request: Request, @Res() response: Response): Promise<Response> {
+    const { doctor_id } = request.params;
+
+    if(!doctor_id.length) {
+      return makeResponse(response, '', `need doctor id param`);
+    }
+
+    try { Number(doctor_id) } catch {
+      return makeResponse(response, '', `wrong doctor id param type`);
+    }
+
+    return await this.execService(
+      response,
+      this.service.indexAll,
+      Number(doctor_id),
+    );
+  }
+
+  @Get('users/:user_id/user-attendances')
   async index(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { user_id } = request.params;
 
@@ -38,7 +57,7 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     );
   }
 
-  @Post('attendances/:attendance_id/user-attendances')
+  @Post('users/:user_id/attendances/:attendance_id/user-attendances')
   async add(@Req() request: Request, @Res() response: Response): Promise<Response> {
     if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
@@ -78,7 +97,7 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     );
   }
 
-  @Put('attendances/:attendance_id/user-attendances/:id')
+  @Put('users/:user_id/attendances/:attendance_id/user-attendances/:id')
   async update(@Req() request: Request, @Res() response: Response): Promise<Response> {
     if(!request.body) {
       return makeResponse(response, 'no-data', 'need body data');
@@ -120,7 +139,7 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     );
   }
 
-  @Delete('attendances/:attendance_id/user-attendances/:id')
+  @Delete('user-attendances/:id')
   async delete(@Req() request: Request, @Res() response: Response): Promise<Response> {
     const { id } = request.params;
 

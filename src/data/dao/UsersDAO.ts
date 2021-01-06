@@ -19,6 +19,8 @@ class UsersDAO extends IUsersDAO {
       throw createError('not-found', `${this.entityName} not found`);
     }
 
+    delete row['password'];
+
     return row;
   }
 

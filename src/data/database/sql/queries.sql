@@ -21,17 +21,19 @@ CREATE TABLE doctors (
   user_id serial not null,
   attendance_id serial not null,
   crm varchar(16) not null,
-  constraint user_fk foreign key (user_id) references users(id),
-  constraint attendance_fk foreign key (attendance_id) references attendances(id)
+  constraint doctors_user_fk foreign key (user_id) references users(id),
+  constraint doctors_attendance_fk foreign key (attendance_id) references attendances(id)
 );
 
 CREATE TABLE user_attendances (
   id serial primary key,
   user_id serial not null,
   attendance_id serial not null,
+  doctor_id serial,
   date timestamp not null,
-  constraint user_fk foreign key (user_id) references users(id),
-  constraint attendance_fk foreign key (attendance_id) references attendances(id)
+  status varchar(13) default value 'not-realized',
+  constraint user_attendances_user_fk foreign key (user_id) references users(id),
+  constraint user_attendances_attendance_fk foreign key (attendance_id) references attendances(id)  on delete cascade
 );
 
 CREATE TABLE services (
@@ -41,17 +43,17 @@ CREATE TABLE services (
   description text default '',
   price decimal not null,
   duration decimal not null,
-  constraint attendance_fk foreign key (attendance_id) references attendances(id)
+  constraint services_attendance_fk foreign key (attendance_id) references attendances(id) on delete cascade
 );
 
 CREATE TABLE user_attendance_services (
   user_attendance_id serial not null,
   service_id serial not null,
-  constraint user_attendance_fk
+  constraint user_attendance_services_user_attendance_fk
     foreign key (user_attendance_id)
     references user_attendances(id)
     on delete cascade,
-  constraint service_fk
+  constraint user_attendance_services_service_fk
     foreign key (service_id)
     references services(id)
     on delete cascade
@@ -62,10 +64,11 @@ CREATE TABLE commissions (
   doctor_id serial not null,
   client_attendance_id serial not null,
   value decimal not null,
-  constraint doctor_fk
+  date timestamp default now,
+  constraint commissions_doctor_fk
     foreign key(doctor_id)
-    references doctors(id),
-  constraint client_attendance_fk
+    references doctors(id) on delete cascade,
+  constraint commissions_client_attendance_fk
     foreign key(client_attendance_id)
-    references user_attendances(id)
+    references user_attendances(id) on delete cascade
 );

@@ -24,9 +24,24 @@ class AttendancesDAO extends IAttendancesDAO_1.default {
     }
     async add(data) {
         const connection = Connection_1.createConnection();
-        const row = await connection(this.tableName)
+        const serviceList = data['services'];
+        delete data['services'];
+        const trx = await connection.transaction();
+        const row = await trx(this.tableName)
             .insert(data)
             .returning('*');
+        if (serviceList) {
+            const services = [];
+            for (const service of serviceList) {
+                const loopRow = await trx('services')
+                    .insert(Object.assign(Object.assign({}, service), { attendance_id: row[0]['id'] }))
+                    .returning('*');
+                services.push(loopRow[0]);
+            }
+            row[0]['services'] = services;
+        }
+        await trx.commit();
+        await trx.destroy();
         await connection.destroy();
         if (!row[0]['id']) {
             throw GeneralUtils_1.createError('internal-error', `error-inserting-${this.entityName}`);

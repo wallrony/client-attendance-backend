@@ -7,8 +7,9 @@ async function up(knex) {
         table.integer('doctor_id').notNullable();
         table.integer('client_attendance_id').notNullable();
         table.decimal('value').notNullable();
-        table.foreign('doctor_id').references('id').inTable('doctors');
-        table.foreign('client_attendance_id').references('id').inTable('users');
+        table.timestamp('date').notNullable();
+        table.foreign('doctor_id').references('id').inTable('doctors').onDelete('CASCADE');
+        table.foreign('client_attendance_id').references('id').inTable('users').onDelete('CASCADE');
     });
 }
 exports.up = up;

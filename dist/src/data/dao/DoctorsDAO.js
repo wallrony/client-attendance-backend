@@ -16,6 +16,7 @@ class DoctorsDAO extends IDoctorDAO_1.default {
             throw GeneralUtils_1.createError('not-found', `${this.entityName} not found`);
         }
         delete row['id'];
+        delete row['password'];
         return row;
     }
     async update(data) {

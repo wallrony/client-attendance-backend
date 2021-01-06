@@ -4,4 +4,5 @@ export default interface Commission extends Model {
     doctor_id: number;
     client_attendance_id: number;
     value: number;
+    date?: string;
 }

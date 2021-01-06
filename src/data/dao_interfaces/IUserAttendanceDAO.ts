@@ -6,6 +6,10 @@ class IUserAttendanceDAO extends IDAO {
     super('user-attendance', 'user_attendances');
   }
 
+  indexAll(doctor_id: number): Promise<UserAttendance[]> {
+    throw('You have to implement this method.');
+  }
+
   index(attendanceID: number): Promise<UserAttendance[]> {
     throw('You have to implement this method.');
   }

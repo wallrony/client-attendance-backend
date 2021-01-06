@@ -15,6 +15,7 @@ class UsersDAO extends IUserDAO_1.default {
         if (!row) {
             throw GeneralUtils_1.createError('not-found', `${this.entityName} not found`);
         }
+        delete row['password'];
         return row;
     }
     async update(data) {

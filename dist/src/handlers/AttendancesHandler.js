@@ -32,6 +32,9 @@ let AttendancesHandler = class AttendancesHandler extends Handler_1.default {
             return ResponseUtils_1.makeResponse(response, 'bad-req', `${emptyFields.join(', ')} fields are needed`);
         }
         const data = this.improver.createT(request.body);
+        if (request.body['services']) {
+            data.services = request.body['services'];
+        }
         return await this.execService(response, this.service.add, data);
     }
     async update(request, response) {
