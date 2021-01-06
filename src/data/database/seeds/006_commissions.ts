@@ -1,6 +1,6 @@
 import Knex from 'knex';
 import Commission from 'src/core/models/Commission';
-import { getActualDate } from 'src/core/utils/DateUtils';
+import { getActualDate } from '../../../core/utils/DateUtils';
 
 export async function seed(knex: Knex) {
   const commissions: Commission[] = []
@@ -14,5 +14,9 @@ export async function seed(knex: Knex) {
     date
   });
 
-  return await knex('commissions').insert(commissions);
+  const result = await knex('commissions').insert(commissions);;
+
+  knex.destroy();
+
+  return result;
 }

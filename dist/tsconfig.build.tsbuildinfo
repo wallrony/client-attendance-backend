@@ -1717,7 +1717,7 @@
         "affectsGlobalScope": false
       },
       "../src/core/utils/DatabaseUtils.ts": {
-        "version": "2600e5a57a62e6ae4c328ffcd83c79f25c53639587951755e7acd41f4f9644e1",
+        "version": "958bc8ed8f6af59364b802784e40549cbbc5456f2d14e3065ec8253d60954c48",
         "signature": "9aa84cf9acc9662d736c0dbe438f7e06ec3fdc60eeb3bc361caa42e5eea0e116",
         "affectsGlobalScope": false
       },
@@ -2077,12 +2077,12 @@
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/000_users.ts": {
-        "version": "fb2a9eeea532d29367a1926f7bf7ee7bb1f2efcb5a7381fbf24f8fb28daca296",
+        "version": "1ff18e0ed7f6b84e01e74595d0e14e8cbe9ed2482ab7fbd9794b54a687ea8e4e",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/001_attendances.ts": {
-        "version": "3079fe3e58407ec0bf78bc2f7f7d1fb6df8a96eb22140fb213fe8f88a5e96e4e",
+        "version": "9ff764aba22c4510fa91f774a7452c12457154ea4da0aee509cdc7932554a8f4",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
@@ -2092,22 +2092,22 @@
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/003_services.ts": {
-        "version": "92cc82c2fcb30dc2b6f765f66aa4df5616e37fe58fdd50270a292db8500e16a4",
+        "version": "8e346fe04df3fabb225b654811709f347d81e49ec499a3d8c53091e50d81e5df",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/004_user_attendances.ts": {
-        "version": "4e363bbdb59fb771747649d27363b2f101aa97e0639bb4753c90459656f9feb3",
+        "version": "8c395870823145cc6c27f6a2713984ec8cb5d3d42976834676e5eedccad38634",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/005_user_attendance_services.ts": {
-        "version": "2087d3519d48c8e0b5290e2091e1d5f23331941e850587277467d7bf1958eec3",
+        "version": "40a20d3ee016e5bc069aab8bdbdb6871713451ddf4f0691d818bd65e1162f0a2",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/006_commissions.ts": {
-        "version": "4571059489de68721aba198aebacaa6ec74120457dd401e2b5f9547d9d6a2966",
+        "version": "ca8eb18642b313c07b067d0528929ba98e4496979f8c5072977ae57aa3f4c37a",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },

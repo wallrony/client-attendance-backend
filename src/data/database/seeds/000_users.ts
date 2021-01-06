@@ -21,5 +21,7 @@ export async function seed(knex: Knex) {
     password: encriptPass('123456'),
   });
 
-  return await knex('users').insert(users);
+  const result = await knex('users').insert(users);
+
+  return result;
 }

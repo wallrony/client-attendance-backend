@@ -31,7 +31,8 @@ async function seed(knex) {
         description: 'A extração remove um dente que esteja danificado ou comprometido.',
         price: 50,
     });
-    return await knex('services').insert(services);
+    const result = await knex('services').insert(services);
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=003_services.js.map

@@ -21,6 +21,11 @@ const devConfig: Knex.Config<any> = {
     directory: path.resolve(__dirname, 'src', 'data', 'database', 'seeds'),
   },
   useNullAsDefault: true,
+  pool: {
+    min: 2,
+    max: 10,
+    destroyTimeoutMillis: 10000,
+  }
 };
 
 const prodConfig = devConfig;

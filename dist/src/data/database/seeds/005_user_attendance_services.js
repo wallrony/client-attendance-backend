@@ -20,7 +20,9 @@ async function seed(knex) {
         service_id: 2,
         user_attendance_id: 3
     });
-    return await knex('user_attendance_services').insert(userAttendanceServices);
+    const result = await knex('user_attendance_services')
+        .insert(userAttendanceServices);
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=005_user_attendance_services.js.map

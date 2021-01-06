@@ -9,7 +9,8 @@ async function seed(knex) {
     attendances.push({
         title: 'Revisão Dentária',
     });
-    return await knex('attendances').insert(attendances);
+    const result = await knex('attendances').insert(attendances);
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=001_attendances.js.map

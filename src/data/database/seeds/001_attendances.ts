@@ -12,5 +12,7 @@ export async function seed(knex: Knex) {
     title: 'Revisão Dentária',
   });
 
-  return await knex('attendances').insert(attendances);
+  const result = await knex('attendances').insert(attendances);
+
+  return result;
 }

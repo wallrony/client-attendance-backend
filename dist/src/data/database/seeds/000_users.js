@@ -17,7 +17,8 @@ async function seed(knex) {
         email: 'user@user.com',
         password: CryptoUtils_1.encriptPass('123456'),
     });
-    return await knex('users').insert(users);
+    const result = await knex('users').insert(users);
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=000_users.js.map

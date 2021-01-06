@@ -36,5 +36,7 @@ export async function seed(knex: Knex) {
     price: 50,
   });
 
-  return await knex('services').insert(services);
+  const result = await knex('services').insert(services);
+
+  return result;
 }

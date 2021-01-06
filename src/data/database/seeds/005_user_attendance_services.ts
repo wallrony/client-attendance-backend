@@ -24,5 +24,8 @@ export async function seed(knex: Knex) {
     user_attendance_id: 3
   });
 
-  return await knex('user_attendance_services').insert(userAttendanceServices);
+  const result = await knex('user_attendance_services')
+    .insert(userAttendanceServices);
+
+  return result;
 }

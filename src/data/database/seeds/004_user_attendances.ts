@@ -26,5 +26,7 @@ export async function seed(knex: Knex) {
     doctor_id: 1,
   });
 
-  return await knex('user_attendances').insert(userAttendances);
+  const result = await knex('user_attendances').insert(userAttendances);;
+
+  return result;
 }

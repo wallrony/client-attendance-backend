@@ -23,7 +23,9 @@ async function seed(knex) {
         status: 'realized',
         doctor_id: 1,
     });
-    return await knex('user_attendances').insert(userAttendances);
+    const result = await knex('user_attendances').insert(userAttendances);
+    ;
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=004_user_attendances.js.map

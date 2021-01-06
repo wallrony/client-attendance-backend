@@ -12,7 +12,10 @@ async function seed(knex) {
         value: 135,
         date
     });
-    return await knex('commissions').insert(commissions);
+    const result = await knex('commissions').insert(commissions);
+    ;
+    knex.destroy();
+    return result;
 }
 exports.seed = seed;
 //# sourceMappingURL=006_commissions.js.map
