@@ -1,3 +1,4 @@
+import UserAttendance from "src/core/models/UserAttendance";
 import Commission from "../../core/models/Commission";
 import { createError } from "../../core/utils/GeneralUtils";
 import ICommissionsDAO from "../dao_interfaces/ICommissionsDAO";
@@ -58,9 +59,10 @@ class CommissionsDAO extends ICommissionsDAO {
       throw createError('internal-error', `error-inserting-${this.entityName}`);
     }
 
-    const secondRow = await trx('user_attendances')
+    const secondRow = await trx<UserAttendance>('user_attendances')
       .update({
-        'realized': true,
+        'status': 'realized',
+        'doctor_id': data.doctor_id,
       }).where('id', '=', data.client_attendance_id);
 
     if(!secondRow) {

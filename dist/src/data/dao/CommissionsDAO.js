@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const UserAttendance_1 = require("../../core/models/UserAttendance");
 const GeneralUtils_1 = require("../../core/utils/GeneralUtils");
 const ICommissionsDAO_1 = require("../dao_interfaces/ICommissionsDAO");
 const Connection_1 = require("../database/Connection");
@@ -38,7 +39,8 @@ class CommissionsDAO extends ICommissionsDAO_1.default {
         }
         const secondRow = await trx('user_attendances')
             .update({
-            'realized': true,
+            'status': 'realized',
+            'doctor_id': data.doctor_id,
         }).where('id', '=', data.client_attendance_id);
         if (!secondRow) {
             throw GeneralUtils_1.createError('internal-error', `error-inserting-${this.entityName}`);

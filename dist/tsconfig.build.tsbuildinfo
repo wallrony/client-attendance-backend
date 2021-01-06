@@ -1822,7 +1822,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/CommissionsDAO.ts": {
-        "version": "ab826356a8fbbcbf214b40fa0e8c3497d408f7366aa1b76344e87b08ca200686",
+        "version": "498dccddc37c2fe6dadb50e72bdd2681369722ac8cedf4302e888d49ca80d9e1",
         "signature": "2abafad2455fe555074fc8e3a9d74ef4baf2c63e2086740a451957c198d5b183",
         "affectsGlobalScope": false
       },
@@ -3891,6 +3891,7 @@
       ],
       "../src/data/dao/CommissionsDAO.ts": [
         "../src/core/models/Commission.ts",
+        "../src/core/models/UserAttendance.ts",
         "../src/core/utils/GeneralUtils.ts",
         "../src/data/dao_interfaces/ICommissionsDAO.ts",
         "../src/data/database/Connection.ts"
