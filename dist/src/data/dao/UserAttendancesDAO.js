@@ -8,12 +8,10 @@ class UserAttendancesDAO extends IUserAttendanceDAO_1.default {
     async indexAll(doctor_id) {
         const connection = Connection_1.createConnection();
         const rows = await connection(this.tableName)
-            .select(`${this.tableName}.id`, `${this.tableName}.user_id`, `${this.tableName}.attendance_id`, `${this.tableName}.date`, `${this.tableName}.status`, 'attendances.title')
+            .select(`${this.tableName}.id`, `${this.tableName}.user_id`, `${this.tableName}.attendance_id`, `${this.tableName}.date`, `${this.tableName}.status`, `${this.tableName}.doctor_id`, 'attendances.title')
             .join('attendances', 'attendances.id', '=', `${this.tableName}.attendance_id`)
             .innerJoin('doctors', 'doctors.attendance_id', '=', 'attendances.id')
-            .where(`${this.tableName}.status`, '=', 'not-realized')
-            .orWhere(`${this.tableName}.status`, '=', 'in-progress')
-            .andWhere('doctors.id', '=', doctor_id);
+            .where(`${this.tableName}.status`, '<>', 'realized');
         if (!rows) {
             throw GeneralUtils_1.createError('not-found', `${this.entityName} not found`);
         }
@@ -121,7 +119,6 @@ class UserAttendancesDAO extends IUserAttendanceDAO_1.default {
             .select('services.name', 'services.id', 'services.price', 'services.duration')
             .innerJoin('services', 'services.id', '=', 'user_attendance_services.service_id')
             .where('user_attendance_services.user_attendance_id', '=', String(row[0]['id']));
-        console.log(finalRow);
         row[0]['services'] = finalRow;
         await trx.destroy();
         await connection.destroy();

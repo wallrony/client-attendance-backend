@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.seed = void 0;
 const Commission_1 = require("../../../core/models/Commission");
+const DateUtils_1 = require("../../../core/utils/DateUtils");
 async function seed(knex) {
     const commissions = [];
-    const actualDate = new Date();
-    const date = `${actualDate.getFullYear()}-${actualDate.getMonth() + 1}-${actualDate.getDate()}T${actualDate.getHours()}:${actualDate.getMinutes()}:${actualDate.getSeconds()}.000Z`;
+    const date = DateUtils_1.getActualDate();
     commissions.push({
         client_attendance_id: 3,
         doctor_id: 1,

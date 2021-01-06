@@ -20,6 +20,7 @@ class CommissionsService extends Service_1.default {
             result.data = await Facade_1.default().addCommission(data);
         }
         catch (e) {
+            console.log(e);
             result.err = e;
         }
         return result;

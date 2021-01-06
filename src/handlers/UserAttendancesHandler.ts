@@ -130,6 +130,8 @@ class UserAttendancesHandler extends Handler<UserAttendancesService, UserAttenda
     });
 
     data.id = Number(id);
+    data.doctor_id = Number(request.body['doctor_id']);
+    data.status = request.body['status'];
 
     return await this.execService(
       response,

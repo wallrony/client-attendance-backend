@@ -1816,13 +1816,18 @@
         "signature": "bb3f713b82ca2cd9647ab7cc6a6f87d3d435ec4eac4d420acb906f3daff420b0",
         "affectsGlobalScope": false
       },
+      "../src/core/utils/DateUtils.ts": {
+        "version": "36e8eb16d3cd783a9b1e656e67dbf0c219d3af807d61acfeabdaf977d5179b44",
+        "signature": "31c85bb491dedf7c7d29e64543ecc3b199c01c81305ec3848982e88de328b5ec",
+        "affectsGlobalScope": false
+      },
       "../src/data/dao_interfaces/ICommissionsDAO.ts": {
         "version": "880cb9c8afd6f11e35b1ce231897662eca565f8c439ce4b7914c0839033c9407",
         "signature": "a6dd4432082f3f922454a24b40864f3d42ecb4f2af99044b2b837bfa7d851779",
         "affectsGlobalScope": false
       },
       "../src/data/dao/CommissionsDAO.ts": {
-        "version": "498dccddc37c2fe6dadb50e72bdd2681369722ac8cedf4302e888d49ca80d9e1",
+        "version": "625d17a4251f668c9bdc57e9ad0d2721ea901dd3a3fd1583cc48a5479ca9d16c",
         "signature": "2abafad2455fe555074fc8e3a9d74ef4baf2c63e2086740a451957c198d5b183",
         "affectsGlobalScope": false
       },
@@ -1867,7 +1872,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/dao/UserAttendancesDAO.ts": {
-        "version": "6da41370dcf184e0d9cb913ef6b1216c64bf72b812975d3e46906adeb141cfa5",
+        "version": "1c1c76140b8b81bfabe23d4f639840c2fe84e7610cb86f77d486a17cc60d5dc4",
         "signature": "024c2e90ae39f32127e14d61b4ee607cf786a525ab30c30f45dc14fea4d25d3b",
         "affectsGlobalScope": false
       },
@@ -1922,7 +1927,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/CommissionsService.ts": {
-        "version": "d098ee66f42b27d39222717544a1e596aa9613f9265b81616bdf1ccd35e71dc6",
+        "version": "f690b70b91dd990832b1a511729da86709577a82f6d7a1bc3142978188fff285",
         "signature": "2b2dca2d48926750a420e63c3c4601944dc9cb6936475123377e3e412ed7c655",
         "affectsGlobalScope": false
       },
@@ -1987,7 +1992,7 @@
         "affectsGlobalScope": false
       },
       "../src/handlers/UserAttendancesHandler.ts": {
-        "version": "9f86ff07c3b8d4bb015a57e053face62d359a3694b5c02bf2474c848a1ed3e35",
+        "version": "9afa12dc6d67c7e7c68e367a3c08bf5bca4814591149370252fe619eff198618",
         "signature": "3d739233db3b9888115d4486701f7de24c043b2f87b2664fcf5d684794128732",
         "affectsGlobalScope": false
       },
@@ -2102,7 +2107,7 @@
         "affectsGlobalScope": false
       },
       "../src/data/database/seeds/006_commissions.ts": {
-        "version": "72a5d820d2060276649a038a24789576d403f2768f7d6b862559c75753edd640",
+        "version": "4571059489de68721aba198aebacaa6ec74120457dd401e2b5f9547d9d6a2966",
         "signature": "bd233c1eee39202d9f078a75a4f5ea1418c9de6a4972dcf001e93b8041d30e73",
         "affectsGlobalScope": false
       },
@@ -3892,6 +3897,7 @@
       "../src/data/dao/CommissionsDAO.ts": [
         "../src/core/models/Commission.ts",
         "../src/core/models/UserAttendance.ts",
+        "../src/core/utils/DateUtils.ts",
         "../src/core/utils/GeneralUtils.ts",
         "../src/data/dao_interfaces/ICommissionsDAO.ts",
         "../src/data/database/Connection.ts"
@@ -4018,7 +4024,8 @@
       ],
       "../src/data/database/seeds/006_commissions.ts": [
         "../node_modules/knex/types/index.d.ts",
-        "../src/core/models/Commission.ts"
+        "../src/core/models/Commission.ts",
+        "../src/core/utils/DateUtils.ts"
       ],
       "../src/handlers/AttendancesHandler.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -6311,6 +6318,7 @@
       "../src/core/models/UserAttendanceService.ts",
       "../src/core/utils/CryptoUtils.ts",
       "../src/core/utils/DatabaseUtils.ts",
+      "../src/core/utils/DateUtils.ts",
       "../src/core/utils/GeneralUtils.ts",
       "../src/core/utils/RequestUtils.ts",
       "../src/core/utils/ResponseUtils.ts",

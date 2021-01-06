@@ -101,6 +101,8 @@ let UserAttendancesHandler = class UserAttendancesHandler extends Handler_1.defa
             date: request.body['date']
         });
         data.id = Number(id);
+        data.doctor_id = Number(request.body['doctor_id']);
+        data.status = request.body['status'];
         return await this.execService(response, this.service.update, data, request.body['services']);
     }
     async delete(request, response) {

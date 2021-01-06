@@ -1,4 +1,5 @@
 import UserAttendance from "src/core/models/UserAttendance";
+import { getActualDate } from "src/core/utils/DateUtils";
 import Commission from "../../core/models/Commission";
 import { createError } from "../../core/utils/GeneralUtils";
 import ICommissionsDAO from "../dao_interfaces/ICommissionsDAO";
@@ -42,9 +43,8 @@ class CommissionsDAO extends ICommissionsDAO {
 
   async add(data: Commission): Promise<Commission> {
     const connection = createConnection();
-
-    const actualDate = new Date();
-    const date = `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}T${actualDate.getHours()}-${actualDate.getMinutes()}-${actualDate.getSeconds()}.000Z`
+    
+    const date = getActualDate();
 
     const trx = await connection.transaction();
 

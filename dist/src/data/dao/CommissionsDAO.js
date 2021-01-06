@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const UserAttendance_1 = require("../../core/models/UserAttendance");
+const DateUtils_1 = require("../../core/utils/DateUtils");
 const GeneralUtils_1 = require("../../core/utils/GeneralUtils");
 const ICommissionsDAO_1 = require("../dao_interfaces/ICommissionsDAO");
 const Connection_1 = require("../database/Connection");
@@ -28,8 +29,7 @@ class CommissionsDAO extends ICommissionsDAO_1.default {
     }
     async add(data) {
         const connection = Connection_1.createConnection();
-        const actualDate = new Date();
-        const date = `${actualDate.getFullYear()}-${actualDate.getMonth()}-${actualDate.getDay()}T${actualDate.getHours()}-${actualDate.getMinutes()}-${actualDate.getSeconds()}.000Z`;
+        const date = DateUtils_1.getActualDate();
         const trx = await connection.transaction();
         const row = await trx(this.tableName)
             .insert(Object.assign(Object.assign({}, data), { date }))
