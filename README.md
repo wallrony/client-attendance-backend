@@ -4,7 +4,7 @@ Autor: Wallisson Rony de M. N.
 
 Este é um backend para a aplicação Client Attendances.
 
-Para visualizar as requisições disponíveis na aplicação, utilize do JSON "Insomnia Workspace.json" do repositório, adicionando-o como arquivo de configuração no programa Insomnia ou Postman.
+Para visualizar as requisições disponíveis na aplicação, utilize do JSON "Insomnia Workspace.json" do repositório, adicionando-o como arquivo de configuração no programa Insomnia ou Postman. Para informações de uso, visualize as últimas etapas do README.
 
 ## Pacotes Presentes neste Repositório.
 
@@ -44,3 +44,50 @@ O banco de dados utilizado foi o PostgreSQL para manter uma comunicação entre 
 Seu diagrama de entidades relacionadas segue da mesma forma que o print abaixo:
 
 ![](ilustration_images/diagram.png)
+
+## Teste em Execução
+
+Para testar o backend em execução com o script `yarn start`, recomendo que utilize os comandos `yarn knex:migrate` e `yarn knex:seed`, para realizar a adição de tabelas no banco de dados e a inserção de seeds (valores iniciais) para um uso teste do servidor. O comando `yarn` pode ser substituído pelo comando `npm run` caso utilize o gerenciador de pacotes `npm`.
+
+Para utilizar de todas as funcionalidades dispostas, é necessário realizar login. Para isso, após utilizar o comando `yarn knex:seed` ou `npm run knex:seed` para inserção dos usuários padrão, você pode utilizar as seguintes credenciais para realizar autenticação:
+
+Para se autenticar com um usuário administrador, utilize as credenciais à seguir na rota de login:
+
+```json
+{
+  "email": "admin@admin.com",
+  "password": "123456"
+}
+```
+
+Para se autenticar com um usuário normal, utilize as credenciais à seguir na rota de login:
+
+```json
+{
+  "email": "user@user.com",
+  "password": "123456"
+}
+```
+
+Para se autenticar com um usuário administrador, utilize as credenciais à seguir na rota de login:
+
+```json
+{
+  "email": "doc@doc.com",
+  "password": "123456"
+}
+```
+
+Após isso, será possível utilizar de todas as rotas disponíveis na aplicação passando o token de autorização pelo Header Authorization de cada requisição, colocando da seguinte forma:
+
+Obs.: O token à seguir é um token de autorização exemplo, que não funciona.
+
+```text
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpZCI6MywiaWF0IjoxNjA5OTM0ODY4LCJleHAiOjE2MDk5MzU0Njh9YY6ISV3egasqNtXZj0NLL5baXFQluLwc8fsxjsyiX1M
+```
+
+O token expira de 10 em 10 minutos, logo, é necessário realizar login a cada 10 minutos. Esse tempo foi definido para que em execução a aplicação fosse testada mais rápido.
+
+</hr>
+
+Em breve terá mais explicações sobre rotas de cada entidade em tabelas descritas aqui.
