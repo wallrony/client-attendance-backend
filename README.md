@@ -2,9 +2,9 @@
 
 Autor: Wallisson Rony de M. N.
 
-Este é um backend para a aplicação Client Attendances.
+Este é um backend para a aplicação Client Attendances que utiliza NestJS para controle de roteamento da API Rest, KnexJS como Query Builder para manipulação dos dados do banco de dados e o banco de dados PostgreSQL.
 
-Para visualizar as requisições disponíveis na aplicação, utilize do JSON "Insomnia Workspace.json" do repositório, adicionando-o como arquivo de configuração no programa Insomnia ou Postman. Para informações de uso, visualize as últimas etapas do README.
+Para mais informações da aplicação vá até o tópico "Database" à baixo.
 
 ## Pacotes Presentes neste Repositório.
 
@@ -44,6 +44,12 @@ O banco de dados utilizado foi o PostgreSQL para manter uma comunicação entre 
 Seu diagrama de entidades relacionadas segue da mesma forma que o print abaixo:
 
 ![](ilustration_images/diagram.png)
+
+## Requisições da Aplicação
+
+Para visualizar as requisições disponíveis na aplicação, utilize do JSON "Insomnia Workspace.json" do repositório, adicionando-o como arquivo de configuração no programa Insomnia ou Postman.
+
+Em breve terá mais explicações sobre rotas de cada entidade em tabelas descritas aqui.
 
 ## Teste em Execução
 
@@ -87,7 +93,3 @@ Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpZCI6MywiaWF0IjoxNjA
 ```
 
 O token expira de 10 em 10 minutos, logo, é necessário realizar login a cada 10 minutos. Esse tempo foi definido para que em execução a aplicação fosse testada mais rápido.
-
-</hr>
-
-Em breve terá mais explicações sobre rotas de cada entidade em tabelas descritas aqui.
